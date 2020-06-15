@@ -5,6 +5,26 @@ import (
 	"sort"
 )
 
+
+// 78. Subsets
+func subsets(nums []int) [][]int {
+	ret := make([][]int, 0)
+	ret = append(ret, []int{})
+	for _, v := range nums {
+		for _, set := range ret {
+			// neet to create another clear space for subset appending avoiding "append trap"
+			tmpset := make([]int, len(set))
+			copy(tmpset, set)
+			tmpset = append(tmpset, v)
+			// if v == 7 {
+			// 	fmt.Printf("		prev set[%v]: %v \t (%v) %p %p \n", i, tmpset, ret[i], tmpset, ret[i])
+			// }
+			ret = append(ret, tmpset)
+		}
+	}
+	return ret
+}
+
 // 581. Shortest Unsorted Continuous Subarray
 func findUnsortedSubarray(nums []int) int {
 	sorted := make([]int, len(nums))
@@ -25,9 +45,6 @@ func findUnsortedSubarray(nums []int) int {
 			break
 		}
 	}
-	fmt.Println(nums)
-	fmt.Println(sorted)
-	fmt.Println(startIdx, endIdx)
 	if endIdx == startIdx {
 		// means no sub array
 		return 0
