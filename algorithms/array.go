@@ -5,6 +5,29 @@ import (
 	"sort"
 )
 
+// 238. Product of Array Except Self
+func productExceptSelf(nums []int) []int {
+	fmt.Println(nums)
+
+	ret := make([]int, len(nums), len(nums))
+	for i := range ret {
+		ret[i] = 1
+	}
+
+	for i := 1; i < len(nums); i++ {
+		ret[i] = ret[i-1] * nums[i-1]
+	}
+	fmt.Println(ret)
+
+	commulation := 1
+	for j := len(nums) - 2; j >= 0; j-- {
+		fmt.Println(commulation, ret[j])
+		ret[j] = commulation * nums[j+1] * ret[j]
+		commulation = commulation * nums[j+1]
+	}
+	fmt.Println(ret)
+	return ret
+}
 
 // 78. Subsets
 func subsets(nums []int) [][]int {
