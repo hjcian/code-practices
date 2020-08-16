@@ -10,6 +10,8 @@ leetcode practices
 - [1. Two Sum](array/0001.TwoSum.go)
 - [26. Remove Duplicates from Sorted Array](array/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](array/0027.RemoveElement.go)
+- [53. Maximum Subarray](array/0053.MaximumSubarray.go)
+- [88. Merge Sorted Array](array/0088.MergeSortedArray.go)
 
 # Partner
 - https://github.com/hongtw/leetcode
