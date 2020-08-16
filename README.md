@@ -7,6 +7,9 @@ leetcode practices
     - https://leetcode.com/problemset/all/?topicSlugs=array
 
 # Array Progress
-- [1. Two Sum](array/1.TwoSum.go)
-- [26. Remove Duplicates from Sorted Array](array/26.RemoveDuplicatesFromSortedArray.go)
-- [27. Remove Element](array/27.RemoveElement.go)
+- [1. Two Sum](array/0001.TwoSum.go)
+- [26. Remove Duplicates from Sorted Array](array/0026.RemoveDuplicatesFromSortedArray.go)
+- [27. Remove Element](array/0027.RemoveElement.go)
+
+# Partner
+- https://github.com/hongtw/leetcode
