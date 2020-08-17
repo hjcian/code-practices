@@ -12,6 +12,7 @@ leetcode practices
 - [27. Remove Element](array/0027.RemoveElement.go)
 - [53. Maximum Subarray](array/0053.MaximumSubarray.go)
 - [88. Merge Sorted Array](array/0088.MergeSortedArray.go)
+- [219. Contains Duplicate II](array/219.ContainsDuplicateII.go)
 
 # Partner
 - https://github.com/hongtw/leetcode
