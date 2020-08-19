@@ -16,4 +16,4 @@ leetcode practices
 - [53. Maximum Subarray](problems/0053.MaximumSubarray.go)
 - [88. Merge Sorted Array](problems/0088.MergeSortedArray.go)
 - [219. Contains Duplicate II](problems/219.ContainsDuplicateII.go)
-- [283. Move Zeroes](problems/283.MoveZeroes/283.go)
+- [283. Move Zeroes](problems/0283.MoveZeroes/283.go)
