@@ -7,6 +7,11 @@ import (
 )
 
 func equivalentInterger(ipv4 string) string {
+	// Useful tool:
+	// 		http://www.aboutmyip.com/AboutMyXApp/IP2Integer.jsp?ipAddress=216.58.200.14
+	// golang int/string convert hints:
+	// 		https://yourbasic.org/golang/convert-int-to-string/
+	//
 	values := strings.Split(ipv4, ".")
 	// fmt.Println(values)
 	var ret float64 = 0
