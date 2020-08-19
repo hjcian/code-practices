@@ -25,27 +25,27 @@ def createGoFile(packageName, filepath):
     with filepath.open("w") as fd:
         fd.write(template)
 
-def createLeetcode(title):    
-    problemDir = DIR_PATH.joinpath("leetcode", "problems", title)
-    problemDir.mkdir(parents=True, exist_ok=True)
-    
-    packageName = title.split(".")[-1].lower()
-
-    createGoFile(packageName, problemDir.joinpath("{}.go".format(title)))
-    createGoFile(packageName, problemDir.joinpath("{}_test.go".format(title)))
-    print("Create leetcode problem '{}' done.".format(problemDir.name))
-
-def createCodeSignal(title):
-    pass
-
 if __name__ == "__main__":
     leetcode, codesignal, title = parseArgv()
     title = title.replace(" ", "")
     if title.split(".")[0].isdigit():
         title = "0" * (4 - len(title.split(".")[0])) + title
+    print("Problem title: {}".format(title))
+    packageName = title.split(".")[-1].lower()
+    print("  packageName: {}".format(packageName))
+
+    platform = "dummy"
+    if leetcode:
+        platform = "leetcode"
+        problemDir = DIR_PATH.joinpath(platform, "problems", title)
+    if codesignal: 
+        platform = "codesignal"
+        problemDir = DIR_PATH.joinpath(platform, title)
     
-    if leetcode: createLeetcode(title)
-    if codesignal: createCodeSignal(title)
+    problemDir.mkdir(parents=True, exist_ok=False)
+
+    createGoFile(packageName, problemDir.joinpath("{}.go".format(title)))
+    createGoFile(packageName, problemDir.joinpath("{}_test.go".format(title)))
     
-    
-    
+    print("Create {} problem '{}' done.".format(platform, problemDir.name))
+

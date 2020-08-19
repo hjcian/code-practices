@@ -9,6 +9,10 @@ leetcode practices
 # Partner
 - https://github.com/hongtw/leetcode
 
+# Folder creation example
+- `python createFolder.py -c -t "convertIPv4"`
+- `python createFolder.py -l -t "283. Move Zeroes"`
+
 # Array Progress
 - [1. Two Sum](problems/0001.TwoSum.go)
 - [26. Remove Duplicates from Sorted Array](problems/0026.RemoveDuplicatesFromSortedArray.go)
@@ -16,4 +20,4 @@ leetcode practices
 - [53. Maximum Subarray](problems/0053.MaximumSubarray.go)
 - [88. Merge Sorted Array](problems/0088.MergeSortedArray.go)
 - [219. Contains Duplicate II](problems/219.ContainsDuplicateII.go)
-- [283. Move Zeroes](problems/0283.MoveZeroes/283.go)
+- [283. Move Zeroes](leetcode/problems/0283.MoveZeroes/0283.MoveZeroes.go)
