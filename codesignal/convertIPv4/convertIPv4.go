@@ -11,6 +11,16 @@ func toHex(n int64) string {
 	return strconv.FormatInt(n, 16)
 }
 
+func compactGroup(values []string) string {
+	str := strings.Join(values[:4], "")
+	// remove leading zeros (refer to: https://en.wikipedia.org/wiki/IPv6#Address_representation)
+	ret := strings.TrimLeft(str, "0")
+	if len(ret) == 0 {
+		return "0"
+	}
+	return ret
+}
+
 func ipv4ToHex(nums []int64) string {
 	// Hint from: https://www.researchgate.net/figure/IPv4-to-IPv6-Conversion-Method1-In-this-method-firstly-to-convert-the-Decimal-IPv4_fig1_271294793
 	// Details: https://zh.wikipedia.org/wiki/IPv6
@@ -20,7 +30,8 @@ func ipv4ToHex(nums []int64) string {
 		rightBits := n & 0x0F
 		hexValues = append(hexValues, toHex(leftBits), toHex(rightBits))
 	}
-	return fmt.Sprintf("0:0:0:0:0:ffff:%v:%v", strings.Join(hexValues[:4], ""), strings.Join(hexValues[4:], ""))
+
+	return fmt.Sprintf("0:0:0:0:0:ffff:%v:%v", compactGroup(hexValues[:4]), compactGroup(hexValues[4:]))
 }
 
 func equivalentInterger(nums []int64) string {
@@ -59,4 +70,15 @@ func convertIPv4(ipv4 string) []string {
 	eqInt := equivalentInterger(nums)
 	ipv6 := ipv4ToHex(nums)
 	return []string{eqInt, ipv6}
+}
+
+func ipv4Toipv6(ipv4 string) string {
+	values := strings.Split(ipv4, ".")
+	nums := make([]int64, 0, 4)
+	for _, s := range values {
+		if n, err := strconv.Atoi(s); err == nil {
+			nums = append(nums, int64(n))
+		}
+	}
+	return ipv4ToHex(nums)
 }
