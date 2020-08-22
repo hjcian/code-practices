@@ -21,13 +21,28 @@ def parseArgv():
 
 def createGoFile(packageName, filepath):
     template = '''package {}
-    '''.format(packageName)    
+'''.format(packageName)
+    with filepath.open("w") as fd:
+        fd.write(template)
+
+def createTestGoFile(packageName, filepath):
+    template ='''package {0}
+
+import "testing"
+
+func Test_{0}(t *testing.T) {{
+
+}}
+'''.format(packageName)
+
     with filepath.open("w") as fd:
         fd.write(template)
 
 if __name__ == "__main__":
     leetcode, codesignal, title = parseArgv()
     title = title.replace(" ", "")
+    title = title.replace("-", "")
+
     if title.split(".")[0].isdigit():
         title = "0" * (4 - len(title.split(".")[0])) + title
     print("Problem title: {}".format(title))
@@ -45,7 +60,7 @@ if __name__ == "__main__":
     problemDir.mkdir(parents=True, exist_ok=False)
 
     createGoFile(packageName, problemDir.joinpath("{}.go".format(title)))
-    createGoFile(packageName, problemDir.joinpath("{}_test.go".format(title)))
+    createTestGoFile(packageName, problemDir.joinpath("{}_test.go".format(title)))
     
     print("Create {} problem '{}' done.".format(platform, problemDir.name))
 
