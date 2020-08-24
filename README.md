@@ -24,3 +24,4 @@ leetcode practices
 - [287. Find the Duplicate Number](leetcode/problems/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
 - [532. K-diff Pairs in an Array](leetcode/problems/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
 - [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
+- [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
