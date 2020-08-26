@@ -13,7 +13,11 @@ leetcode practices
 - `python createFolder.py -c -t "convertIPv4"`
 - `python createFolder.py -l -t "283. Move Zeroes"`
 
-# Array Progress
+# CodeSignal Problems
+- [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
+- [christmasTree](codesignal/christmasTree/christmasTree.go)
+
+# Leetcode Problems
 - [1. Two Sum](problems/0001.TwoSum.go)
 - [26. Remove Duplicates from Sorted Array](problems/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](problems/0027.RemoveElement.go)
@@ -25,4 +29,4 @@ leetcode practices
 - [532. K-diff Pairs in an Array](leetcode/problems/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
 - [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
-- [628. 628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
+- [628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
