@@ -26,19 +26,17 @@ func head(maxLen int) []string {
 }
 
 func foot(levelNum, levelHeight, maxLen int) []string {
-	line := ""
-	if levelHeight%2 == 1 {
-		// odd
-		line = strings.Repeat("*", levelHeight)
-	} else {
-		// even
-		line = strings.Repeat("*", levelHeight+1)
-
+	repeats := levelHeight
+	if levelHeight%2 == 0 {
+		repeats++
 	}
-	space := strings.Repeat(" ", maxLen/2-len(line)/2)
+
+	stars := strings.Repeat("*", repeats)
+	spaces := strings.Repeat(" ", maxLen/2-len(stars)/2)
+
 	ret := make([]string, 0, levelNum)
 	for i := 0; i < levelNum; i++ {
-		ret = append(ret, fmt.Sprintf("%s%s", space, line))
+		ret = append(ret, fmt.Sprintf("%s%s", spaces, stars))
 	}
 	return ret
 }
