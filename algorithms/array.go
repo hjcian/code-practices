@@ -5,6 +5,49 @@ import (
 	"sort"
 )
 
+// 238. Product of Array Except Self
+func productExceptSelf(nums []int) []int {
+	fmt.Println(nums)
+
+	ret := make([]int, len(nums), len(nums))
+	for i := range ret {
+		ret[i] = 1
+	}
+
+	for i := 1; i < len(nums); i++ {
+		ret[i] = ret[i-1] * nums[i-1]
+	}
+	fmt.Println(ret)
+
+	commulation := 1
+	for j := len(nums) - 2; j >= 0; j-- {
+		fmt.Println(commulation, ret[j])
+		ret[j] = commulation * nums[j+1] * ret[j]
+		commulation = commulation * nums[j+1]
+	}
+	fmt.Println(ret)
+	return ret
+}
+
+// 78. Subsets
+func subsets(nums []int) [][]int {
+	ret := make([][]int, 0)
+	ret = append(ret, []int{})
+	for _, v := range nums {
+		for _, set := range ret {
+			// neet to create another clear space for subset appending avoiding "append trap"
+			tmpset := make([]int, len(set))
+			copy(tmpset, set)
+			tmpset = append(tmpset, v)
+			// if v == 7 {
+			// 	fmt.Printf("		prev set[%v]: %v \t (%v) %p %p \n", i, tmpset, ret[i], tmpset, ret[i])
+			// }
+			ret = append(ret, tmpset)
+		}
+	}
+	return ret
+}
+
 // 581. Shortest Unsorted Continuous Subarray
 func findUnsortedSubarray(nums []int) int {
 	sorted := make([]int, len(nums))
@@ -25,9 +68,6 @@ func findUnsortedSubarray(nums []int) int {
 			break
 		}
 	}
-	fmt.Println(nums)
-	fmt.Println(sorted)
-	fmt.Println(startIdx, endIdx)
 	if endIdx == startIdx {
 		// means no sub array
 		return 0
