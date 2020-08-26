@@ -25,3 +25,4 @@ leetcode practices
 - [532. K-diff Pairs in an Array](leetcode/problems/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
 - [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
+- [628. 628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
