@@ -30,3 +30,4 @@ leetcode practices
 - [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
 - [628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
+- 👀 [746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
