@@ -10,8 +10,8 @@ leetcode practices
 - https://github.com/hongtw/leetcode
 
 # Folder creation example
-- `python createFolder.py -c -t "convertIPv4"`
-- `python createFolder.py -l -t "283. Move Zeroes"`
+- `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
+- `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
 
 # CodeSignal Problems
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
@@ -30,4 +30,5 @@ leetcode practices
 - [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
 - [628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
-- 👀 [746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
+- 👀[746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
+- 👀[766. Toeplitz Matrix](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
