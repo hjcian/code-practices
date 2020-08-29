@@ -1,4 +1,4 @@
-package leetcode
+package removeelement
 
 import "testing"
 

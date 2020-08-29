@@ -1,4 +1,4 @@
-package leetcode
+package removeelement
 
 func removeElement(nums []int, val int) int {
 	tmp := nums[:0]

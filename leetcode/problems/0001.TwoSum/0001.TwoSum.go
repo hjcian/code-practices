@@ -1,4 +1,4 @@
-package leetcode
+package twosum
 
 func twoSum(nums []int, target int) []int {
 	diffSet := make(map[int][]int, 0)

@@ -1,4 +1,4 @@
-package leetcode
+package containsduplicateii
 
 func containsNearbyDuplicate(nums []int, k int) bool {
 	record := make(map[int]int)

@@ -23,12 +23,12 @@ leetcode practices
 # Leetcode Problems
 ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen.png)
 
-- [1. Two Sum](problems/0001.TwoSum.go)
-- [26. Remove Duplicates from Sorted Array](problems/0026.RemoveDuplicatesFromSortedArray.go)
-- [27. Remove Element](problems/0027.RemoveElement.go)
-- [53. Maximum Subarray](problems/0053.MaximumSubarray.go)
-- [88. Merge Sorted Array](problems/0088.MergeSortedArray.go)
-- [219. Contains Duplicate II](problems/219.ContainsDuplicateII.go)
+- [1. Two Sum](leetcode/problems/0001.TwoSum/0001.TwoSum.go)
+- [26. Remove Duplicates from Sorted Array](leetcode/problems/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
+- [27. Remove Element](leetcode/problems/0027.RemoveElement/0027.RemoveElement.go)
+- [53. Maximum Subarray](leetcode/problems/0053.MaximumSubarray/0053.MaximumSubarray.go)
+- [88. Merge Sorted Array](leetcode/problems/0088.MergeSortedArray/0088.MergeSortedArray.go)
+- [219. Contains Duplicate II](leetcode/problems/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
 - [283. Move Zeroes](leetcode/problems/0283.MoveZeroes/0283.MoveZeroes.go)
 - [287. Find the Duplicate Number](leetcode/problems/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
 - [532. K-diff Pairs in an Array](leetcode/problems/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)

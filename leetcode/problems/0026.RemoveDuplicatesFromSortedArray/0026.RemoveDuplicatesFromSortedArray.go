@@ -1,4 +1,4 @@
-package leetcode
+package removeduplicatesfromsortedarray
 
 func removeDuplicates(nums []int) int {
 	idx := 0

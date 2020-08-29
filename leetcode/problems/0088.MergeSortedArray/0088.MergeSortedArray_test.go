@@ -1,4 +1,4 @@
-package leetcode
+package mergesortedarray
 
 import (
 	"reflect"
