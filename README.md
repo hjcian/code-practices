@@ -32,3 +32,4 @@ leetcode practices
 - [628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
 - 👀[746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
 - 👀[766. Toeplitz Matrix](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
+- [867. Transpose Matrix](leetcode/problems/0867.TransposeMatrix/0867.TransposeMatrix.go)
