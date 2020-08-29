@@ -13,11 +13,16 @@ leetcode practices
 - `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
 - `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
 
+# Custom badge
+- https://shields.io/
+
 # CodeSignal Problems
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
 - [christmasTree](codesignal/christmasTree/christmasTree.go)
 
 # Leetcode Problems
+![](https://img.shields.io/badge/LeetCode-Easy-brightgreen.png)
+
 - [1. Two Sum](problems/0001.TwoSum.go)
 - [26. Remove Duplicates from Sorted Array](problems/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](problems/0027.RemoveElement.go)
