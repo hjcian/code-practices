@@ -21,8 +21,7 @@ leetcode practices
 - [christmasTree](codesignal/christmasTree/christmasTree.go)
 
 # Leetcode Problems
-![](https://img.shields.io/badge/LeetCode-Easy-brightgreen.png)
-
+> ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen.png)
 - [1. Two Sum](leetcode/problems/0001.TwoSum/0001.TwoSum.go)
 - [26. Remove Duplicates from Sorted Array](leetcode/problems/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](leetcode/problems/0027.RemoveElement/0027.RemoveElement.go)
@@ -35,7 +34,13 @@ leetcode practices
 - [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
 - [628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
-- :eye_speech_bubble: [746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
-- :eye_speech_bubble: [766. Toeplitz Matrix](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)
+- [746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)👁‍🗨
+- [766. Toeplitz Matrix](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)👁‍🗨
 - [867. Transpose Matrix](leetcode/problems/0867.TransposeMatrix/0867.TransposeMatrix.go)
-- :eye_speech_bubble: [977. Squares of a Sorted Array](leetcode/problems/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)
+- [977. Squares of a Sorted Array](leetcode/problems/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
+
+> ![](https://img.shields.io/badge/LeetCode-Medium-orange.png)
+- [11. Container With Most Water](leetcode/problems/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
+
+> ![](https://img.shields.io/badge/LeetCode-Hard-red.png)
+- to be continued
