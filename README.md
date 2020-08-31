@@ -13,8 +13,10 @@ leetcode practices
 - `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
 - `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
 
-# Custom badge
+# Resources
+## Custom badge
 - https://shields.io/
+
 
 # CodeSignal Problems
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
@@ -41,6 +43,8 @@ leetcode practices
 
 > ![](https://img.shields.io/badge/LeetCode-Medium-orange.png)
 - [11. Container With Most Water](leetcode/problems/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
+- [15. 3Sum](leetcode/problems/0015.3Sum/0015.3Sum.go)👁‍🗨
+
 
 > ![](https://img.shields.io/badge/LeetCode-Hard-red.png)
 - to be continued
