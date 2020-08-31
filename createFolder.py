@@ -27,12 +27,6 @@ def createGoFile(packageName, filepath):
 
 def createTestGoFile(packageName, filepath):
     template ='''package {0}
-
-import "testing"
-
-func Test_{0}(t *testing.T) {{
-
-}}
 '''.format(packageName)
 
     with filepath.open("w") as fd:
