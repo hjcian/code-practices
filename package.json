@@ -1,0 +1,42 @@
+{
+  "name": "codepractice",
+  "version": "1.0.0",
+  "description": "leetcode practices",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "eslint": "^7.8.1",
+    "standardx": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-react": "^7.20.6",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "ts": "./node_modules/.bin/ts-node",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjcian/leetcode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hjcian/leetcode/issues"
+  },
+  "homepage": "https://github.com/hjcian/leetcode#readme",
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  }
+}

@@ -12,6 +12,7 @@ leetcode practices
 # Folder creation example
 - `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
 - `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
+- `npm run ts codesignal/happyNumber/happyNumber.ts`
 
 # Resources
 ## Custom badge
@@ -21,6 +22,7 @@ leetcode practices
 # CodeSignal Problems
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
 - [christmasTree](codesignal/christmasTree/christmasTree.go)
+- happyNumber: [go](codesignal/happyNumber/happyNumber.go), [ts](codesignal/happyNumber/happyNumber.ts)
 
 # Leetcode Problems
 > ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen.png)
