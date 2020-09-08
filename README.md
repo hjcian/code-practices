@@ -25,7 +25,7 @@ leetcode practices
 - happyNumber: [go](codesignal/happyNumber/happyNumber.go), [ts](codesignal/happyNumber/happyNumber.ts)
 
 # Leetcode Problems
-> ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen.png)
+> ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
 - [1. Two Sum](leetcode/problems/0001.TwoSum/0001.TwoSum.go)
 - [26. Remove Duplicates from Sorted Array](leetcode/problems/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](leetcode/problems/0027.RemoveElement/0027.RemoveElement.go)
@@ -43,10 +43,12 @@ leetcode practices
 - [867. Transpose Matrix](leetcode/problems/0867.TransposeMatrix/0867.TransposeMatrix.go)
 - [977. Squares of a Sorted Array](leetcode/problems/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
 
-> ![](https://img.shields.io/badge/LeetCode-Medium-orange.png)
+> ![](https://img.shields.io/badge/LeetCode-Medium-orange)
 - [11. Container With Most Water](leetcode/problems/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
 - [15. 3Sum](leetcode/problems/0015.3Sum/0015.3Sum.go)👁‍🗨
-- 3-pointers skill [16. 3Sum Closest](leetcode/problems/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨
+- [16. 3Sum Closest](leetcode/problems/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill 
+- [39. Combination Sum](leetcode/problems/0039.CombinationSum/0039.CombinationSum.go) 😞👁‍🗨
+- [48. Rotate Image](leetcode/problems/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 
-> ![](https://img.shields.io/badge/LeetCode-Hard-red.png)
+> ![](https://img.shields.io/badge/LeetCode-Hard-red)
 - to be continued
