@@ -22,7 +22,7 @@ function happyNumber(n: number): boolean {
     }
 }
 
-function main () {
+function main (): void {
   const testCases = [
     {
       name: 'Example',

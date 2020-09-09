@@ -23,6 +23,7 @@ leetcode practices
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
 - [christmasTree](codesignal/christmasTree/christmasTree.go)
 - happyNumber: [go](codesignal/happyNumber/happyNumber.go), [ts](codesignal/happyNumber/happyNumber.ts)
+- videoPart: [go](codesignal/videoPart/videoPart.go), [ts](codesignal/videoPart/videoPart.ts)
 
 # Leetcode Problems
 > ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
