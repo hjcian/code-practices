@@ -50,6 +50,8 @@ leetcode practices
 - [16. 3Sum Closest](leetcode/problems/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill 
 - [39. Combination Sum](leetcode/problems/0039.CombinationSum/0039.CombinationSum.go) 😞👁‍🗨
 - [48. Rotate Image](leetcode/problems/0048.RotateImage/0048.RotateImage.go)👁‍🗨
+- 54. Spiral Matrix
+- [56. Merge Intervals](leetcode/problems/0056.MergeIntervals/0056.MergeIntervals.go)
 
 > ![](https://img.shields.io/badge/LeetCode-Hard-red)
 - to be continued
