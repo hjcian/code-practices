@@ -24,6 +24,8 @@ leetcode practices
 - [christmasTree](codesignal/christmasTree/christmasTree.go)
 - happyNumber: [go](codesignal/happyNumber/happyNumber.go), [ts](codesignal/happyNumber/happyNumber.ts)
 - videoPart: [go](codesignal/videoPart/videoPart.go), [ts](codesignal/videoPart/videoPart.ts)
+- factorial_fun: [ts](codesignal/factorial_fun/factorial_fun.ts)
+- isBeautifulString: [js](codesignal/isBeautifulString/isBeautifulString.js)
 
 # Leetcode Problems
 > ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
