@@ -1,7 +1,4 @@
-const _ = require('lodash')
-const assert = require('assert')
 const { expect } = require('chai')
-
 const composeRanges = require('./composeRanges')
 
 describe('Test', () => {
