@@ -1,5 +1,3 @@
-import unittest
-
 def search_substr(full_text, search_text, allow_overlap=True):
     if not full_text or not search_text:
         return 0
@@ -19,13 +17,12 @@ def search_substr(full_text, search_text, allow_overlap=True):
         count += 1
         start_pos = matched_pos + step
 
-class MimicTestObject(object): pass
+import unittest
+from collections import namedtuple
 
 class TestObject(unittest.TestCase):
     def test_cases(self):
-        Test = MimicTestObject()
-        Test.assert_equals = self.assertEqual
-
+        Test = namedtuple("Test", "assert_equals")(self.assertEqual)
         print("Basic tests")
         print("Should handle matches the simple way")
         Test.assert_equals(search_substr('aa_bb_cc_dd_bb_e', 'bb'), 2)
