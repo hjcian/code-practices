@@ -18,6 +18,9 @@ leetcode practices
 ## Custom badge
 - https://shields.io/
 
+# Codewars Problems
+- [Return substring instance count 2](codewars/Returnsubstringinstancecount2/Returnsubstringinstancecount2.py)
+- [Simple Pig Latin](codewars/SimplePigLatin/SimplePigLatin.js)
 
 # CodeSignal Problems
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
@@ -26,6 +29,7 @@ leetcode practices
 - videoPart: [go](codesignal/videoPart/videoPart.go), [ts](codesignal/videoPart/videoPart.ts)
 - factorial_fun: [ts](codesignal/factorial_fun/factorial_fun.ts)
 - isBeautifulString: [js](codesignal/isBeautifulString/isBeautifulString.js)
+- [composeRanges](codesignal/composeRanges/composeRanges.js)
 
 # Leetcode Problems
 > ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
