@@ -1,5 +1,4 @@
 import unittest
-import pprint
 
 def lcs(x, y):
     hashtable = {}
@@ -22,11 +21,11 @@ def lcs(x, y):
 
 class TestLCS(unittest.TestCase):
     def test_lcs(self):
-        # self.assertEqual(lcs("a", "b"), "")
-        # self.assertEqual(lcs("abcdef", "abc"), "abc")
-        # self.assertEqual(lcs("132535365", "123456789"), "12356")
+        self.assertEqual(lcs("a", "b"), "")
+        self.assertEqual(lcs("abcdef", "abc"), "abc")
+        self.assertEqual(lcs("132535365", "123456789"), "12356")
         self.assertEqual(lcs("132535365", "1234567893"), "12356")
-        # self.assertEqual(lcs("finaltest", "zzzfinallyzzz"), "final")
+        self.assertEqual(lcs("finaltest", "zzzfinallyzzz"), "final")
 
 if __name__ == "__main__":
     unittest.main()
