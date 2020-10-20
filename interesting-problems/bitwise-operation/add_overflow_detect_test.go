@@ -15,6 +15,12 @@ func Test_AddOK(t *testing.T) {
 		{-128, -128, false},
 		{127, 1, false},
 		{-128, -1, false},
+
+		{127, 0, true},
+		{0, 127, true},
+		{-128, 0, true},
+		{0, -128, true},
+
 		{123, -123, true},
 		{-123, 123, true},
 		{-10, 123, true},
