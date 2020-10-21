@@ -21,7 +21,7 @@ func addOK(a, b int8) bool {
 	aSignBits := a >> 7
 	bSignBits := b >> 7
 	compareTarget := aSignBits & bSignBits
-	mask := int8(uint8(aSignBits^bSignBits) ^ 0xFF)
+	mask := ^(aSignBits ^ bSignBits)
 	return ((a+b)>>7)&mask == compareTarget
 }
 
