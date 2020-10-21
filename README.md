@@ -19,7 +19,7 @@ leetcode practices
 - https://shields.io/
 
 # Interesting Problems
-- [add overflow detect](interesting-problems/bitwise-operation/add_overflow_detect.go)
+- [add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
 
 # Codewars Problems
 - [Return substring instance count 2](codewars/Returnsubstringinstancecount2/Returnsubstringinstancecount2.py)
