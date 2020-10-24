@@ -19,7 +19,8 @@ leetcode practices
 - https://shields.io/
 
 # Interesting Problems
-- [add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
+- [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
+- [Levenshtein Distance](interesting-problems/Levenshtein%20Distance/levenshteinDistance.py)
 
 # Codewars Problems
 - [Return substring instance count 2](codewars/Returnsubstringinstancecount2/Returnsubstringinstancecount2.py)
@@ -61,7 +62,7 @@ leetcode practices
 - [48. Rotate Image](leetcode/problems/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 - 54. Spiral Matrix
 - [56. Merge Intervals](leetcode/problems/0056.MergeIntervals/0056.MergeIntervals.go)
-- TODO [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- (Need improvement) [1143. Longest Common Subsequence](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
 
 
 > ![](https://img.shields.io/badge/LeetCode-Hard-red)
