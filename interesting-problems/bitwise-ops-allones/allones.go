@@ -1,6 +1,7 @@
 package allones
 
 func isAllEventOnes(n int32) bool {
+	// Talkative style
 	verifier := int32(0b01)
 	mask := int32(0b11)
 	flag := int32(0b00)
@@ -13,6 +14,7 @@ func isAllEventOnes(n int32) bool {
 }
 
 func isAllOddOnes(n int32) bool {
+	// Ninja style
 	flag := int32(0b00)
 	for i := 0; i < 16; i++ {
 		flag |= ((n>>(2*i))&int32(0b11) ^ int32(0b10))
