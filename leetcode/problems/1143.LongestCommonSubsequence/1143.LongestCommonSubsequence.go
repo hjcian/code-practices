@@ -82,7 +82,7 @@ func longestCommonSubsequenceCacheMetrix(text1 string, text2 string) int {
 
 // Runtime: 4 ms, faster than 87.94% of Go online submissions for Longest Common Subsequence.
 // Memory Usage: 10.5 MB, less than 6.38% of Go online submissions for Longest Common Subsequence.
-func longestCommonSubsequence(text1 string, text2 string) int {
+func longestCommonSubsequenceTableSearchOnTheFly(text1 string, text2 string) int {
 
 	matrix := make([][]int, len(text1)+1)
 	for i := 0; i < len(text1)+1; i++ {
@@ -102,4 +102,9 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 
 	// displayMatrix(matrix)
 	return matrix[len(text1)][len(text2)]
+}
+
+func longestCommonSubsequence(text1 string, text2 string) int {
+	// return best solution
+	return longestCommonSubsequenceTableSearchOnTheFly(text1, text2)
 }
