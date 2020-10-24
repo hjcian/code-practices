@@ -18,9 +18,19 @@ func Test_longestCommonSubsequence(t *testing.T) {
 			3,
 		},
 		{
+			"Example 2",
+			args{"abc", "abc"},
+			3,
+		},
+		{
+			"Example 3",
+			args{"abc", "def"},
+			0,
+		},
+		{
 			"Test 18 / 43 test cases passed.",
 			args{"mhunuzqrkzsnidwbun", "szulspmhwpazoxijwbq"},
-			3,
+			6,
 		},
 	}
 	for _, tt := range tests {

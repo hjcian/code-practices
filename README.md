@@ -63,7 +63,7 @@ leetcode practices
 - [48. Rotate Image](leetcode/problems/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 - 54. Spiral Matrix
 - [56. Merge Intervals](leetcode/problems/0056.MergeIntervals/0056.MergeIntervals.go)
-- (Need improvement) [1143. Longest Common Subsequence](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
+- [1143. Longest Common Subsequence](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
 
 
 > ![](https://img.shields.io/badge/LeetCode-Hard-red)
