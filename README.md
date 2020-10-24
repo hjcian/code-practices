@@ -21,6 +21,7 @@ leetcode practices
 # Interesting Problems
 - [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
 - [Levenshtein Distance](interesting-problems/Levenshtein%20Distance/levenshteinDistance.py)
+  - [a good explaination](https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0)
 
 # Codewars Problems
 - [Return substring instance count 2](codewars/Returnsubstringinstancecount2/Returnsubstringinstancecount2.py)
