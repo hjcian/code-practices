@@ -20,8 +20,8 @@ leetcode practices
 
 # Interesting Problems
 - [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
-- [Levenshtein Distance](interesting-problems/Levenshtein%20Distance/levenshteinDistance.py)
-  - [a good explaination](https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0)
+- [Levenshtein Distance](leetcode/problems/0072.EditDistance/levenshteinDistance.py)
+  - [good explaination](https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0)
 
 # Codewars Problems
 - [Return substring instance count 2](codewars/Returnsubstringinstancecount2/Returnsubstringinstancecount2.py)
@@ -67,4 +67,5 @@ leetcode practices
 
 
 > ![](https://img.shields.io/badge/LeetCode-Hard-red)
-- to be continued
+- [72. Edit Distance](leetcode/problems/0072.EditDistance/0072.EditDistance.go)
+  - related: 1143. Longest Common Subsequence ([ref](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go))
