@@ -42,5 +42,37 @@ func Test_selectionSort(t *testing.T) {
 				t.Errorf("bubbleSort() = %v, want %v", got, tt.want)
 			}
 		})
+		t.Run(tt.name, func(t *testing.T) {
+			if got := mergeSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("mergeSort() = %v, want %v", got, tt.want)
+			}
+		})
 	}
+}
+
+func Benchmark_all(b *testing.B) {
+	b.Run("selectionSort", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			nums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
+			selectionSort(nums)
+		}
+	})
+	b.Run("insertionSort", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			nums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
+			insertionSort(nums)
+		}
+	})
+	b.Run("bubbleSort", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			nums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
+			bubbleSort(nums)
+		}
+	})
+	b.Run("mergeSort", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			nums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
+			mergeSort(nums)
+		}
+	})
 }
