@@ -29,5 +29,11 @@ func Test_minDistance(t *testing.T) {
 				t.Errorf("minDistance() = %v, want %v", got, tt.want)
 			}
 		})
+		t.Run(tt.name, func(t *testing.T) {
+			if got := minDistanceMemFriendly(tt.args.word1, tt.args.word2); got != tt.want {
+				t.Errorf("minDistanceMemFriendly() = %v, want %v", got, tt.want)
+			}
+		})
+
 	}
 }

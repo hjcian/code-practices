@@ -1,6 +1,18 @@
 import sys
 
 
+def displayTable(table):
+    for row in table:
+        print(row)
+    print()
+
+
+def assert_equals(got, want):
+    if got != want:
+        print(f"got {got}, want {want}")
+        sys.exit(1)
+
+
 def lcs(a, b, i, j):
     if i == len(a) or j == len(b):
         return 0
@@ -163,30 +175,56 @@ def levenshtein_table_search_on_the_fly(word1, word2):
     return table[-1][-1]
 
 
-def displayTable(table):
-    for row in table:
-        print(row)
-    print()
+def levenshtein_mem_eff(word1, word2):
+    word1Len = len(word1)
+    word2Len = len(word2)
+    if word1Len < word2Len:
+        # table 的 spaces 為 2 * rows，所以 word2 越短空間越省
+        return levenshtein_mem_eff(word2, word1)
 
+    table = [
+        [0] * (word2Len + 1)
+        for _ in range(2)
+        ]
 
-def assert_equals(got, want):
-    if got != want:
-        print(f"got {got}, want {want}")
-        sys.exit(1)
+    for i in range(2):
+        table[i][0] = i
+    for j in range(word2Len + 1):
+        table[0][j] = j
+
+    # displayTable(table)
+
+    for m in range(1, word1Len + 1):
+        table[m % 2][0] = m  # for next loop
+        for n in range(1, word2Len + 1):
+            if word1[m - 1] == word2[n - 1]:
+                table[m % 2][n] = table[(m - 1) % 2][n - 1]
+            else:
+                table[m % 2][n] = 1 + min(
+                    table[(m - 1) % 2][n],
+                    table[m % 2][n - 1],
+                    table[(m - 1) % 2][n - 1],
+                    )
+        # print("m:", m)
+        # displayTable(table)
+
+    return table[word1Len % 2][-1]
 
 
 if __name__ == "__main__":
 
     # levenshtein = levenshtein_recursive
     # levenshtein = levenshtein_table
-    levenshtein = levenshtein_table_search_on_the_fly
+    # levenshtein = levenshtein_table_search_on_the_fly
+    levenshtein = levenshtein_mem_eff
 
-    # assert_equals(levenshtein("kitten", "sitting"), 3)
-    # assert_equals(levenshtein("book", "back"), 2)
-    # assert_equals(levenshtein("book", "book"), 0)
-    # assert_equals(levenshtein("qlzcfayxiz", "vezkvgejzb"), 9)
-    # assert_equals(levenshtein("nayvyedosf", "sjxen"), 9)
-    # assert_equals(levenshtein("sjxen", "sjxen"), 0)
-    # assert_equals(levenshtein("peter", "peter"), 0)
-    # assert_equals(levenshtein("horse", "ros"), 3)
+    assert_equals(levenshtein("sitten", "sitting"), 2)
+    assert_equals(levenshtein("kitten", "sitting"), 3)
+    assert_equals(levenshtein("book", "back"), 2)
+    assert_equals(levenshtein("book", "book"), 0)
+    assert_equals(levenshtein("qlzcfayxiz", "vezkvgejzb"), 9)
+    assert_equals(levenshtein("nayvyedosf", "sjxen"), 9)
+    assert_equals(levenshtein("sjxen", "sjxen"), 0)
+    assert_equals(levenshtein("peter", "peter"), 0)
+    assert_equals(levenshtein("horse", "ros"), 3)
     assert_equals(levenshtein("happy", "ros"), 5)
