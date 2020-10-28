@@ -5,23 +5,25 @@ def displayTable(table):
 
 
 # Explaination Material
-# 12345678
-# otmhethi
-# e
-#     1 2 3 4 5 6 7 8
-#     o t m h e t h i
-# 1 e
-# 2 t
-# 3 h
-# 4 e
+#    123456
+#    abcdef
+# z
+#     1 2 3 4 5 6
+#     a b c d e f
+# 1 z
+# 2 b
+# 3 c
+# 4 d
+# 5 f
 
 # Answer plate
-#     1 2 3 4 5 6 7 8
-#     o t m h e t h i
-# 1 e 0 0 0 0 1 0 0 0
-# 2 t 0 1 0 0 0 2 0 0
-# 3 h 0 0 0 1 0 0 3 0
-# 4 e 0 0 0 0 2 0 0 0
+#     1 2 3 4 5 6
+#     a b c d e f
+# 1 z 0 0 0 0 0 0
+# 2 b 0 1 0 0 0 0
+# 3 c 0 0 2 0 0 0
+# 4 d 0 0 0 3 0 0
+# 5 f 0 0 0 0 0 1
 def substring_test(word1, word2):
     # your code here
     if not word1 or not word2:
