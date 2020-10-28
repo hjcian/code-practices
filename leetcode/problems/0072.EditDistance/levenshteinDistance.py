@@ -59,11 +59,6 @@ def levenshtein_recursive(a, b):
     return ld_recursive(a, b, 0, 0)
 
 
-def showTable(table):
-    for i in table:
-        print(i)
-
-
 def ld_table(a, b, i, j, table, indent=""):
     if i < 0 or j < 0:
         # 表示某一層的小問題，有一邊被切成空字串了，所以回傳非空的那一邊的長度
@@ -98,13 +93,13 @@ def ld_table(a, b, i, j, table, indent=""):
 def levenshtein_table_cache(a, b):
     table = [[-1]*(len(b)) for _ in range(len(a))]
 
-    # showTable(table)
+    # displayTable(table)
     for i, _ in enumerate(a):
         for j, _ in enumerate(b):
             ld_table(a, b, i, j, table, indent="")
             print("-"*50)
         print("="*100)
-    # showTable(table)
+    # displayTable(table)
 
     return table[-1][-1]
 
@@ -134,7 +129,6 @@ def levenshtein_table_search_on_the_fly(word1, word2):
     # y 5 0 0 0
     # 此時觀察 routine 中的 min() 就不會被 table[m-1][] or table[][n-1] 給誤導了
     # displayTable(table)
-
     for i in range(word1Len + 1):
         table[i][0] = i
     for j in range(word2Len + 1):
@@ -147,7 +141,6 @@ def levenshtein_table_search_on_the_fly(word1, word2):
     # [3, 0, 0, 0]
     # [4, 0, 0, 0]
     # [5, 0, 0, 0]
-
     for m in range(1, word1Len + 1):
         for n in range(1, word2Len + 1):
             if word1[m - 1] == word2[n - 1]:
@@ -172,7 +165,7 @@ def levenshtein_table_search_on_the_fly(word1, word2):
     # [4, 4, 4, 4]
     # [5, 5, 5, 5]
 
-    return table[-1][-1]
+    return table[word1Len][word2Len]
 
 
 def levenshtein_mem_eff(word1, word2):
