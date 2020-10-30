@@ -47,6 +47,11 @@ func Test_selectionSort(t *testing.T) {
 				t.Errorf("mergeSort() = %v, want %v", got, tt.want)
 			}
 		})
+		t.Run(tt.name, func(t *testing.T) {
+			if got := quickSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("quickSort() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
 
@@ -73,6 +78,12 @@ func Benchmark_all(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			nums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
 			mergeSort(nums)
+		}
+	})
+	b.Run("quickSort", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			nums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
+			quickSort(nums)
 		}
 	})
 }
