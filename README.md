@@ -60,6 +60,7 @@
 - [977. Squares of a Sorted Array](leetcode/problems/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
 
 > ![](https://img.shields.io/badge/LeetCode-Medium-orange)
+- [2. Add Two Numbers](./leetcode/problems/0002.AddTwoNumbers/0002.AddTwoNumbers.go)
 - [11. Container With Most Water](leetcode/problems/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
 - [15. 3Sum](leetcode/problems/0015.3Sum/0015.3Sum.go)👁‍🗨
 - [16. 3Sum Closest](leetcode/problems/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill
