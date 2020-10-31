@@ -1,22 +1,23 @@
-# leetcode
-leetcode practices
+# Code Practices
+程式碼練習集中存放區
 
 # 參考
 - https://books.halfrost.com/leetcode/ChapterTwo/Array/
-- 練習順序
+- 練習順序參考
     - https://leetcode.com/problemset/all/?topicSlugs=array
 
-# Partner
-- https://github.com/hongtw/leetcode
+# 🎰 Golden Partner
+- https://github.com/hongtw/coding-life
 
 # Folder creation example
 - `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
 - `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
 - `npm run ts codesignal/happyNumber/happyNumber.ts`
 
-# Resources
-## Custom badge
-- https://shields.io/
+
+# Data Structures & Algorithms
+- [Sortings](algorithms/sorting.go)
+- [Bloom Filter](./data-structures/bloomfilter.go) - a naive proof of concept
 
 # Interesting Problems
 - [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
@@ -70,3 +71,7 @@ leetcode practices
 > ![](https://img.shields.io/badge/LeetCode-Hard-red)
 - [72. Edit Distance](leetcode/problems/0072.EditDistance/0072.EditDistance.go)
   - related: 1143. Longest Common Subsequence ([ref](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go))
+
+# Resources
+## Custom badge
+- https://shields.io/
