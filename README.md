@@ -18,6 +18,8 @@
 # Data Structures & Algorithms
 - [Sortings](algorithms/sorting.go)
 - [Bloom Filter](./data-structures/bloomfilter.go) - a naive proof of concept
+  - [資料結構大便當：Bloom Filter](https://medium.com/@Kadai/%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E5%A4%A7%E4%BE%BF%E7%95%B6-bloom-filter-58b0320a346d)
+  - usages: [crypto/hash](https://gobyexample.com/sha1-hashes), [Go: Convert byte array to big.Int](https://stackoverflow.com/questions/24757814/golang-convert-byte-array-to-big-int/36944328), [Go: modulus using math big package](https://stackoverflow.com/questions/24098959/golang-modulus-using-math-big-package), [Go: `big.Int` SetBit()/Bit()](https://stackoverflow.com/a/53681508/8694937)
 
 # Interesting Problems
 - [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
