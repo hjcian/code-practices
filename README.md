@@ -14,7 +14,6 @@
 - `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
 - `npm run ts codesignal/happyNumber/happyNumber.ts`
 
-
 # Data Structures & Algorithms
 - [Sortings](algorithms/sorting.go)
 - [Bloom Filter](./data-structures/bloomfilter.go) - a naive proof of concept
@@ -61,6 +60,7 @@
 
 > ![](https://img.shields.io/badge/LeetCode-Medium-orange)
 - [2. Add Two Numbers](./leetcode/problems/0002.AddTwoNumbers/0002.AddTwoNumbers.go)
+- [3. Longest Substring Without Repeating Characters](./leetcode/problems/0003.LongestSubstringWithoutRepeatingCharacters/0003.LongestSubstringWithoutRepeatingCharacters.go)
 - [11. Container With Most Water](leetcode/problems/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
 - [15. 3Sum](leetcode/problems/0015.3Sum/0015.3Sum.go)👁‍🗨
 - [16. 3Sum Closest](leetcode/problems/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill
