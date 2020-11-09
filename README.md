@@ -28,6 +28,7 @@
 # Codewars Problems
 - [Return substring instance count 2](codewars/Returnsubstringinstancecount2/Returnsubstringinstancecount2.py)
 - [Simple Pig Latin](codewars/SimplePigLatin/SimplePigLatin.js)
+- [Pick peaks](./codewars/Pickpeaks/Pickpeaks.go)
 
 # CodeSignal Problems
 - [convertIPv4](codesignal/convertIPv4/convertIPv4.go)
