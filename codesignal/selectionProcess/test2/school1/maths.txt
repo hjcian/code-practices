@@ -1,0 +1,8 @@
+A A 42
+A B 40
+C B 35
+B A 38
+D A 32
+F F 20
+G G 39
+H H 27
