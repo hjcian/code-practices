@@ -8,6 +8,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"sync"
 )
 
 func check(e error) {
@@ -16,11 +17,9 @@ func check(e error) {
 	}
 }
 
-const (
-	chemistry = "chemistry.txt"
-	maths     = "maths.txt"
-	physics   = "physics.txt"
-)
+func extractSubject(filename string) string {
+	return strings.Split(filepath.Base(filename), ".")[0]
+}
 
 func findTxtFiles(root string) []string {
 	files := make([]string, 0)
@@ -49,8 +48,8 @@ func (s *Student) FullName() string {
 	return s.Name + " " + s.Surname
 }
 
-// MakeStudent makes a Student by given string input
-func MakeStudent(line string) *Student {
+// Text2Student makes a Student by given string input
+func Text2Student(line string) *Student {
 	info := strings.Split(line, " ")
 	scroe, err := strconv.Atoi(info[2])
 	check(err)
@@ -72,7 +71,7 @@ func loadStudents(fpath string) []*Student {
 
 	students := make([]*Student, 0)
 	for scanner.Scan() {
-		students = append(students, MakeStudent(scanner.Text()))
+		students = append(students, Text2Student(scanner.Text()))
 	}
 
 	return students
@@ -86,23 +85,21 @@ type SubjectManager struct {
 // GetBest4 sort the student by their score and return best 4
 func (sm *SubjectManager) GetBest4() []*Student {
 	sort.Slice(sm.Students, func(i, j int) bool {
-		// use > as descending
+		// use '>' for descending order
 		return sm.Students[i].Score > sm.Students[j].Score
 	})
+
 	end := 4
 	if len(sm.Students) < end {
 		end = len(sm.Students)
 	}
+
 	return sm.Students[:end]
 }
 
 // AppendStudents appends the students in its students
 func (sm *SubjectManager) AppendStudents(students []*Student) {
 	sm.Students = append(sm.Students, students...)
-}
-
-func extractSubject(filename string) string {
-	return strings.Split(filepath.Base(filename), ".")[0]
 }
 
 // CourseSystem manges all SubjectManager
@@ -119,35 +116,91 @@ func (cs *CourseSystem) GetSubjectManager(subject string) *SubjectManager {
 	return sm
 }
 
-func selectionProcess(root string) string {
-	cs := make(CourseSystem)
-
-	files := findTxtFiles(root)
+// ImportStudents import students information from filepaths concurrently
+func (cs *CourseSystem) ImportStudents(files []string) {
+	type Job struct {
+		subject string
+		result  []*Student
+	}
+	jobs := make(chan Job, len(files))
+	var wg sync.WaitGroup
+	wg.Add(len(files))
 
 	for _, filename := range files {
-		subject := extractSubject(filename)
-		sm := cs.GetSubjectManager(subject)
-		sm.AppendStudents(loadStudents(filename))
+		go func(filename string) {
+			defer wg.Done()
+			subject := extractSubject(filename)
+			result := loadStudents(filename)
+			jobs <- Job{subject, result}
+		}(filename)
 	}
 
+	wg.Wait()
+	close(jobs)
+
+	for job := range jobs {
+		sm := cs.GetSubjectManager(job.subject)
+		sm.AppendStudents(job.result)
+	}
+}
+
+// SMItem is key-value pair of Subject and SubjectManager
+type SMItem struct {
+	subj string
+	sm   *SubjectManager
+}
+
+// GetSMItem is a generator returns SMItem in ascending order
+func (cs *CourseSystem) GetSMItem() <-chan SMItem {
 	var subjects []string
-	for subject := range cs {
+	for subject := range *cs {
 		subjects = append(subjects, subject)
 	}
 	sort.Strings(subjects)
 
-	ret := ""
-	for _, subject := range subjects {
-		sm := cs.GetSubjectManager(subject)
-
-		fmt.Printf("%s:\n", subject)
-		ret += fmt.Sprintf("%s:\n", subject)
-		for _, student := range sm.GetBest4() {
-			fmt.Println(student.FullName())
-			ret += fmt.Sprintf("%s\n", student.FullName())
+	ch := make(chan SMItem)
+	go func() {
+		for _, subject := range subjects {
+			ch <- SMItem{
+				subject,
+				(*cs)[subject],
+			}
 		}
-		fmt.Println()
-		ret += fmt.Sprintf("\n")
+		close(ch)
+	}()
+
+	return ch
+}
+
+func showBest4BySubject(subject string, sm *SubjectManager) string {
+	ret := ""
+
+	fmt.Printf("%s:\n", subject) // print this line for codesignal tests
+	ret += fmt.Sprintf("%s:\n", subject)
+
+	for _, student := range sm.GetBest4() {
+		fmt.Println(student.FullName()) // print this line for codesignal tests
+		ret += fmt.Sprintf("%s\n", student.FullName())
+	}
+
+	fmt.Println() // print this line for codesignal tests
+	ret += fmt.Sprintf("\n")
+
+	return ret
+}
+
+func selectionProcess(root string) string {
+	files := findTxtFiles(root)
+	cs := make(CourseSystem)
+
+	cs.ImportStudents(files)
+
+	ret := ""
+	for smItem := range cs.GetSMItem() {
+		ret += showBest4BySubject(
+			smItem.subj,
+			smItem.sm,
+		)
 	}
 
 	return ret[:len(ret)-1]
