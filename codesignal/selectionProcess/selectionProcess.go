@@ -23,16 +23,18 @@ func extractSubject(filename string) string {
 
 func findTxtFiles(root string) []string {
 	files := make([]string, 0)
+
 	err := filepath.Walk(
 		root,
 		func(path string, info os.FileInfo, err error) error {
-			if strings.Contains(path, ".txt") {
+			if strings.HasSuffix(path, ".txt") {
 				files = append(files, path)
 			}
 			return nil
 		})
 
 	check(err)
+
 	return files
 }
 
@@ -105,6 +107,12 @@ func (sm *SubjectManager) AppendStudents(students []*Student) {
 // CourseSystem manges all SubjectManager
 type CourseSystem map[string]*SubjectManager
 
+// CourseSystemItem is key-value pair of Subject and SubjectManager
+type CourseSystemItem struct {
+	subject        string
+	subjectManager *SubjectManager
+}
+
 // GetSubjectManager return a *SubjectManager if it exists,
 // or create a new one before return
 func (cs *CourseSystem) GetSubjectManager(subject string) *SubjectManager {
@@ -144,24 +152,18 @@ func (cs *CourseSystem) ImportStudents(files []string) {
 	}
 }
 
-// SMItem is key-value pair of Subject and SubjectManager
-type SMItem struct {
-	subj string
-	sm   *SubjectManager
-}
-
-// GetSMItem is a generator returns SMItem in ascending order
-func (cs *CourseSystem) GetSMItem() <-chan SMItem {
+// GetItem is a generator returns CourseSystemItem (Subject-SubjectManager) in ascending order
+func (cs *CourseSystem) GetItem() <-chan CourseSystemItem {
 	var subjects []string
 	for subject := range *cs {
 		subjects = append(subjects, subject)
 	}
 	sort.Strings(subjects)
 
-	ch := make(chan SMItem)
+	ch := make(chan CourseSystemItem)
 	go func() {
 		for _, subject := range subjects {
-			ch <- SMItem{
+			ch <- CourseSystemItem{
 				subject,
 				(*cs)[subject],
 			}
@@ -196,10 +198,10 @@ func selectionProcess(root string) string {
 	cs.ImportStudents(files)
 
 	ret := ""
-	for smItem := range cs.GetSMItem() {
+	for item := range cs.GetItem() {
 		ret += showBest4BySubject(
-			smItem.subj,
-			smItem.sm,
+			item.subject,
+			item.subjectManager,
 		)
 	}
 
