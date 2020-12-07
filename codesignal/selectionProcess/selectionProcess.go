@@ -30,7 +30,7 @@ func findTxtFiles(root string) []string {
 			if strings.HasSuffix(path, ".txt") {
 				files = append(files, path)
 			}
-			return nil
+			return err
 		})
 
 	check(err)
@@ -68,10 +68,10 @@ func loadStudents(fpath string) []*Student {
 	check(err)
 	defer file.Close()
 
-	scanner := bufio.NewScanner(file)
-	scanner.Split(bufio.ScanLines)
-
 	students := make([]*Student, 0)
+
+	scanner := bufio.NewScanner(file)
+
 	for scanner.Scan() {
 		students = append(students, Text2Student(scanner.Text()))
 	}
@@ -124,43 +124,72 @@ func (cs *CourseSystem) GetSubjectManager(subject string) *SubjectManager {
 	return sm
 }
 
+// Job contains parsed subject and students' information
+type Job struct {
+	subject  string
+	students []*Student
+}
+
+func asyncLoadTranscript(filename string) <-chan Job {
+	ch := make(chan Job)
+	go func() {
+		subject := extractSubject(filename)
+		students := loadStudents(filename)
+		ch <- Job{subject, students}
+		close(ch)
+	}()
+	return ch
+}
+
+func mergeJobs(jobs ...<-chan Job) <-chan Job {
+	// a Fan-in pattern
+	var wg sync.WaitGroup
+	out := make(chan Job)
+
+	output := func(j <-chan Job) {
+		defer wg.Done()
+		for n := range j {
+			out <- n
+		}
+	}
+
+	wg.Add(len(jobs))
+
+	for _, job := range jobs {
+		go output(job)
+	}
+
+	go func() {
+		wg.Wait()
+		close(out)
+	}()
+
+	return out
+}
+
 // ImportStudents import students information from filepaths concurrently
 func (cs *CourseSystem) ImportStudents(files []string) {
-	type Job struct {
-		subject string
-		result  []*Student
-	}
-	jobs := make(chan Job, len(files))
-	var wg sync.WaitGroup
-	wg.Add(len(files))
+	jobChans := make([]<-chan Job, 0, len(files))
 
 	for _, filename := range files {
-		go func(filename string) {
-			defer wg.Done()
-			subject := extractSubject(filename)
-			result := loadStudents(filename)
-			jobs <- Job{subject, result}
-		}(filename)
+		jobChans = append(jobChans, asyncLoadTranscript(filename))
 	}
 
-	wg.Wait()
-	close(jobs)
-
-	for job := range jobs {
+	for job := range mergeJobs(jobChans...) {
 		sm := cs.GetSubjectManager(job.subject)
-		sm.AppendStudents(job.result)
+		sm.AppendStudents(job.students)
 	}
 }
 
 // GetItem is a generator returns CourseSystemItem (Subject-SubjectManager) in ascending order
 func (cs *CourseSystem) GetItem() <-chan CourseSystemItem {
-	var subjects []string
+	subjects := make([]string, 0, len(*cs))
 	for subject := range *cs {
 		subjects = append(subjects, subject)
 	}
 	sort.Strings(subjects)
 
-	ch := make(chan CourseSystemItem)
+	ch := make(chan CourseSystemItem, len(subjects)) // buffered channel is OK
 	go func() {
 		for _, subject := range subjects {
 			ch <- CourseSystemItem{
