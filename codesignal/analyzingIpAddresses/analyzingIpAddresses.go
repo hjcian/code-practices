@@ -9,6 +9,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"sync"
 )
 
 func check(e error) {
@@ -49,12 +50,74 @@ func loadFiles(root string) []string {
 	return files
 }
 
-func extractIPFromFiles(filespaths []string) []string {
-	ipSet := make(map[string]struct{}, 0)
-	for _, fpath := range filespaths {
-		for _, ip := range extractIPsFromFile(fpath) {
-			ipSet[ip] = struct{}{}
+func executor(fpath string) <-chan []string {
+	ch := make(chan []string)
+	go func() {
+		ips := extractIPsFromFile(fpath)
+		ch <- ips
+		close(ch)
+	}()
+	return ch
+}
+
+func fanOut(fpaths []string) []chan []string {
+	workers := make([]chan []string, len(fpaths))
+	for i := range workers {
+		workers[i] = make(chan []string)
+	}
+
+	for i := range fpaths {
+		go func(i int) {
+			select {
+			case out := <-executor(fpaths[i]):
+				workers[i] <- out
+				close(workers[i])
+			}
+		}(i)
+	}
+
+	return workers
+}
+
+func fanIn(jobs ...chan []string) chan []string {
+	var wg sync.WaitGroup
+	out := make(chan []string)
+
+	output := func(j <-chan []string) {
+		defer wg.Done()
+		for n := range j {
+			out <- n
 		}
+	}
+
+	wg.Add(len(jobs))
+
+	for _, job := range jobs {
+		go output(job)
+	}
+
+	go func() {
+		wg.Wait()
+		close(out)
+	}()
+
+	return out
+}
+
+func concurrentExtractIPs(fpaths []string) []string {
+	workers := fanOut(fpaths)
+
+	ips := make([]string, 0)
+	for results := range fanIn(workers...) {
+		ips = append(ips, results...)
+	}
+	return ips
+}
+
+func extractIPFromFiles(fpaths []string) []string {
+	ipSet := make(map[string]struct{}, 0)
+	for _, ip := range concurrentExtractIPs(fpaths) {
+		ipSet[ip] = struct{}{}
 	}
 
 	ips := make([]string, 0)
