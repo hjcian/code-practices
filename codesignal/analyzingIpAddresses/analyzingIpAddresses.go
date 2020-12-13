@@ -35,108 +35,92 @@ func extractIPsFromFile(fpath string) []string {
 	return validIPs
 }
 
-func loadFiles(root string) []string {
-	files := make([]string, 0)
-	filepath.Walk(
-		root,
-		func(path string, info os.FileInfo, err error) error {
-			if info.IsDir() {
-				return nil
-			}
-			files = append(files, path)
-			return err
-		},
-	)
-	return files
-}
+// loadFiles is a simple generator generates filepath for consumers
+func loadFiles(root string) <-chan string {
+	fpathCh := make(chan string)
 
-func executor(fpath string) <-chan []string {
-	ch := make(chan []string)
 	go func() {
-		ips := extractIPsFromFile(fpath)
-		ch <- ips
-		close(ch)
+		defer close(fpathCh)
+
+		err := filepath.Walk(
+			root,
+			func(path string, info os.FileInfo, err error) error {
+				if err != nil {
+					return err
+				}
+
+				if info.IsDir() {
+					return nil
+				}
+
+				select {
+				case fpathCh <- path:
+				}
+
+				return nil
+			},
+		)
+		check(err)
 	}()
-	return ch
+	return fpathCh
 }
 
-func fanOut(fpaths []string) []chan []string {
-	workers := make([]chan []string, len(fpaths))
-	for i := range workers {
-		workers[i] = make(chan []string)
+func digestor(fpathCh <-chan string, resultCh chan<- []string) {
+	for fpath := range fpathCh {
+		ips := extractIPsFromFile(fpath)
+		resultCh <- ips
 	}
-
-	for i := range fpaths {
-		go func(i int) {
-			select {
-			case out := <-executor(fpaths[i]):
-				workers[i] <- out
-				close(workers[i])
-			}
-		}(i)
-	}
-
-	return workers
 }
 
-func fanIn(jobs ...chan []string) chan []string {
+func workerPool(fpathCh <-chan string) chan []string {
+	resultCh := make(chan []string)
 	var wg sync.WaitGroup
-	out := make(chan []string)
+	const numWorkers = 20
 
-	output := func(j <-chan []string) {
-		defer wg.Done()
-		for n := range j {
-			out <- n
-		}
-	}
-
-	wg.Add(len(jobs))
-
-	for _, job := range jobs {
-		go output(job)
+	wg.Add(numWorkers)
+	for i := 0; i < numWorkers; i++ {
+		go func() {
+			defer wg.Done()
+			digestor(fpathCh, resultCh)
+		}()
 	}
 
 	go func() {
 		wg.Wait()
-		close(out)
+		close(resultCh)
 	}()
 
-	return out
+	return resultCh
 }
 
-func concurrentExtractIPs(fpaths []string) []string {
-	workers := fanOut(fpaths)
-
-	ips := make([]string, 0)
-	for results := range fanIn(workers...) {
-		ips = append(ips, results...)
-	}
-	return ips
-}
-
-func extractIPFromFiles(fpaths []string) []string {
+func collectIPs(resultCh <-chan []string) []string {
 	ipSet := make(map[string]struct{}, 0)
-	for _, ip := range concurrentExtractIPs(fpaths) {
-		ipSet[ip] = struct{}{}
+	for ips := range resultCh {
+		for _, ip := range ips {
+			ipSet[ip] = struct{}{}
+		}
 	}
 
 	ips := make([]string, 0)
 	for ip := range ipSet {
 		ips = append(ips, ip)
 	}
+	sort.Strings(ips)
 
 	return ips
 }
 
 func analyzingipaddresses(root string) string {
-	filespaths := loadFiles(root)
-	ips := extractIPFromFiles(filespaths)
-	sort.Strings(ips)
+	fpathCh := loadFiles(root)
+	ipsCh := workerPool(fpathCh)
+	ips := collectIPs(ipsCh)
+
 	ret := ""
 	for _, ip := range ips {
 		ret += fmt.Sprintf("%v\n", ip)
 		fmt.Println(ip)
 	}
+
 	return strings.TrimSpace(ret)
 }
 
