@@ -1,0 +1,6 @@
+1477123675|ERROR|handler.cpp|127|findHandlers|Division by zero
+1477884474|TRACE|handler.cpp|130|findHandlers|Start calculations
+1477997395|ERROR|handler.cpp|1110|getHandlers|Array out of bounds
+1478944445|INFO|file.py|12|getData|Getting data
+1478975988|ERROR|do.sh|1700|start|errors
+
