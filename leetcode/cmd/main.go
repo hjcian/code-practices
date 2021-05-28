@@ -90,14 +90,18 @@ package %s
 }
 
 func main() {
-	title := flag.String("title", "", "question title")
 	flag.Parse()
-	log.Printf("got title: `%s`\n", *title)
+	args := flag.Args()
 
+	if len(args) != 1 {
+		log.Fatal("forgot to give me question title?")
+	}
+
+	title := args[0]
 	rootPath := getLeetCodePath()
 	log.Println("checked rootPath:", rootPath)
 
-	name := genName(*title)
+	name := genName(title)
 	log.Println("formatted title:", name)
 
 	folderPath := filepath.Join(rootPath, name)
