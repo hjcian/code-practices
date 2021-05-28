@@ -9,8 +9,8 @@ def parseArgv():
     parser.add_argument("-c", "--codesignal", action="store_true", help="toggle the codesignal")
     parser.add_argument("-w", "--codewars", action="store_true", help="toggle the codewars")
     parser.add_argument("-t", "--title", help="the problem title of codesignal problem")
-    
-    argv = parser.parse_args()    
+
+    argv = parser.parse_args()
 
     if not argv.leetcode and not argv.codesignal and not argv.codewars:
         parser.error("leetcode, codesignal or codewars?")
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     if leetcode:
         platform = "leetcode"
         problemDir = DIR_PATH.joinpath(platform, "problems", title)
-    if codesignal: 
+    if codesignal:
         platform = "codesignal"
         problemDir = DIR_PATH.joinpath(platform, title)
     if codewars:
@@ -59,6 +59,6 @@ if __name__ == "__main__":
 
     createGoFile(packageName, problemDir.joinpath("{}.go".format(title)))
     createTestGoFile(packageName, problemDir.joinpath("{}_test.go".format(title)))
-    
+
     print("Create {} problem '{}' done.".format(platform, problemDir.name))
 
