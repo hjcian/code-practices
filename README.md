@@ -23,41 +23,41 @@
 # Problems & practices
 ## Leetcode
 > ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
-- [1. Two Sum](leetcode/problems/0001.TwoSum/0001.TwoSum.go)
-- [26. Remove Duplicates from Sorted Array](leetcode/problems/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
-- [27. Remove Element](leetcode/problems/0027.RemoveElement/0027.RemoveElement.go)
-- [53. Maximum Subarray](leetcode/problems/0053.MaximumSubarray/0053.MaximumSubarray.go)
-- [88. Merge Sorted Array](leetcode/problems/0088.MergeSortedArray/0088.MergeSortedArray.go)
-- [219. Contains Duplicate II](leetcode/problems/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
-- [283. Move Zeroes](leetcode/problems/0283.MoveZeroes/0283.MoveZeroes.go)
-- [287. Find the Duplicate Number](leetcode/problems/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
-- [532. K-diff Pairs in an Array](leetcode/problems/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
-- [561. Array Partition I](leetcode/problems/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
-- [566. Reshape the Matrix](leetcode/problems/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
-- [628. Maximum Product of Three Numbers](leetcode/problems/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
-- [704. BinarySearch](leetcode/problems/0704.BinarySearch/0704.BinarySearch.go)
-- [746. Min Cost Climbing Stairs](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)👁‍🗨
-- [766. Toeplitz Matrix](leetcode/problems/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)👁‍🗨
-- [867. Transpose Matrix](leetcode/problems/0867.TransposeMatrix/0867.TransposeMatrix.go)
-- [977. Squares of a Sorted Array](leetcode/problems/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
+- [1. Two Sum](leetcode/0001.TwoSum/0001.TwoSum.go)
+- [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
+- [27. Remove Element](leetcode/0027.RemoveElement/0027.RemoveElement.go)
+- [53. Maximum Subarray](leetcode/0053.MaximumSubarray/0053.MaximumSubarray.go)
+- [88. Merge Sorted Array](leetcode/0088.MergeSortedArray/0088.MergeSortedArray.go)
+- [219. Contains Duplicate II](leetcode/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
+- [283. Move Zeroes](leetcode/0283.MoveZeroes/0283.MoveZeroes.go)
+- [287. Find the Duplicate Number](leetcode/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
+- [532. K-diff Pairs in an Array](leetcode/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
+- [561. Array Partition I](leetcode/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
+- [566. Reshape the Matrix](leetcode/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
+- [628. Maximum Product of Three Numbers](leetcode/0628.MaximumProductofThreeNumbers/0628.MaximumProductofThreeNumbers.go)
+- [704. BinarySearch](leetcode/0704.BinarySearch/0704.BinarySearch.go)
+- [746. Min Cost Climbing Stairs](leetcode/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)👁‍🗨
+- [766. Toeplitz Matrix](leetcode/0746.MinCostClimbingStairs/0746.MinCostClimbingStairs.go)👁‍🗨
+- [867. Transpose Matrix](leetcode/0867.TransposeMatrix/0867.TransposeMatrix.go)
+- [977. Squares of a Sorted Array](leetcode/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
 
 > ![](https://img.shields.io/badge/LeetCode-Medium-orange)
-- [2. Add Two Numbers](./leetcode/problems/0002.AddTwoNumbers/0002.AddTwoNumbers.go)
-- [3. Longest Substring Without Repeating Characters](./leetcode/problems/0003.LongestSubstringWithoutRepeatingCharacters/0003.LongestSubstringWithoutRepeatingCharacters.go)
-- [11. Container With Most Water](leetcode/problems/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
-- [15. 3Sum](leetcode/problems/0015.3Sum/0015.3Sum.go)👁‍🗨
-- [16. 3Sum Closest](leetcode/problems/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill
-- [19. Remove Nth Node From End of List](./leetcode/problems/0019.RemoveNthNodeFromEndofList/0019.RemoveNthNodeFromEndofList.go)
-- [39. Combination Sum](leetcode/problems/0039.CombinationSum/0039.CombinationSum.go) 😞👁‍🗨
-- [48. Rotate Image](leetcode/problems/0048.RotateImage/0048.RotateImage.go)👁‍🗨
+- [2. Add Two Numbers](./leetcode/0002.AddTwoNumbers/0002.AddTwoNumbers.go)
+- [3. Longest Substring Without Repeating Characters](./leetcode/0003.LongestSubstringWithoutRepeatingCharacters/0003.LongestSubstringWithoutRepeatingCharacters.go)
+- [11. Container With Most Water](leetcode/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
+- [15. 3Sum](leetcode/0015.3Sum/)👁‍🗨
+- [16. 3Sum Closest](leetcode/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill
+- [19. Remove Nth Node From End of List](./leetcode/0019.RemoveNthNodeFromEndofList/0019.RemoveNthNodeFromEndofList.go)
+- [39. Combination Sum](leetcode/0039.CombinationSum/0039.CombinationSum.go) 😞👁‍🗨
+- [48. Rotate Image](leetcode/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 - 54. Spiral Matrix
-- [56. Merge Intervals](leetcode/problems/0056.MergeIntervals/0056.MergeIntervals.go)
-- [1143. Longest Common Subsequence](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
+- [56. Merge Intervals](leetcode/0056.MergeIntervals/0056.MergeIntervals.go)
+- [1143. Longest Common Subsequence](leetcode/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
 
 
 > ![](https://img.shields.io/badge/LeetCode-Hard-red)
-- [72. Edit Distance](leetcode/problems/0072.EditDistance/0072.EditDistance.go)
-  - related: 1143. Longest Common Subsequence ([ref](leetcode/problems/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go))
+- [72. Edit Distance](leetcode/0072.EditDistance/0072.EditDistance.go)
+  - related: 1143. Longest Common Subsequence ([ref](leetcode/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go))
 
 ## classic data structures & algorithms practices
 - [Sortings](algorithms/sorting.go)
@@ -83,7 +83,7 @@
 # 思路統整
 
 發現題目直覺暴力解需要 *O(n<sup>2</sup>)*，則使用 `map` 的資料結構歷遍一次(*O(n)*)建立查詢效率 *O(1)* 的 lookup table，接著再歷遍一次做比較
-- [1. Two Sum](leetcode/problems/0001.TwoSum/)
+- [1. Two Sum](leetcode/0001.TwoSum/)
 
 
 
@@ -107,7 +107,7 @@
 
 ## 有趣的議題
 - [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
-- [Levenshtein Distance](leetcode/problems/0072.EditDistance/levenshteinDistance.py)
+- [Levenshtein Distance](leetcode/0072.EditDistance/levenshteinDistance.py)
   - [good explanation](https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0)
 ## Custom badge
 - https://shields.io/
