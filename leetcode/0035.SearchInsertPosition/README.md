@@ -1,4 +1,7 @@
 # Question
+
+https://leetcode.com/problems/search-insert-position/
+
 給定一個陣列與目標值，找到目標值應該插在陣列的何處（index, position）
 
 且限制複雜度要為 *O(log n)*
