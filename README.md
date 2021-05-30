@@ -6,6 +6,8 @@
   - [Codewars](#codewars)
   - [CodeSignal](#codesignal)
 - [思路統整](#思路統整)
+- [基礎知識](#基礎知識)
+  - [Bitwise operation](#bitwise-operation)
 - [參考資料](#參考資料)
   - [練習順序](#練習順序)
 - [Miscellaneous](#miscellaneous)
@@ -17,12 +19,9 @@
   - [Partner](#partner)
 
 
-
-
-
 # Problems & practices
 ## Leetcode
-> ![](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
+> ![Easy](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
 - [1. Two Sum](leetcode/0001.TwoSum/)
 - [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](leetcode/0027.RemoveElement/0027.RemoveElement.go)
@@ -32,6 +31,7 @@
 - [219. Contains Duplicate II](leetcode/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
 - [283. Move Zeroes](leetcode/0283.MoveZeroes/0283.MoveZeroes.go)
 - [287. Find the Duplicate Number](leetcode/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
+- [338. Counting Bits](leetcode/0338.CountingBits/)
 - [532. K-diff Pairs in an Array](leetcode/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
 - [561. Array Partition I](leetcode/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
@@ -42,7 +42,7 @@
 - [867. Transpose Matrix](leetcode/0867.TransposeMatrix/0867.TransposeMatrix.go)
 - [977. Squares of a Sorted Array](leetcode/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
 
-> ![](https://img.shields.io/badge/LeetCode-Medium-orange)
+> ![Medium](https://img.shields.io/badge/LeetCode-Medium-orange)
 - [2. Add Two Numbers](./leetcode/0002.AddTwoNumbers/0002.AddTwoNumbers.go)
 - [3. Longest Substring Without Repeating Characters](./leetcode/0003.LongestSubstringWithoutRepeatingCharacters/0003.LongestSubstringWithoutRepeatingCharacters.go)
 - [11. Container With Most Water](leetcode/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
@@ -56,7 +56,7 @@
 - [1143. Longest Common Subsequence](leetcode/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
 
 
-> ![](https://img.shields.io/badge/LeetCode-Hard-red)
+> ![Hard](https://img.shields.io/badge/LeetCode-Hard-red)
 - [72. Edit Distance](leetcode/0072.EditDistance/0072.EditDistance.go)
   - related: 1143. Longest Common Subsequence ([ref](leetcode/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go))
 
@@ -86,6 +86,17 @@
 發現題目直覺暴力解需要 *O(n<sup>2</sup>)*，則使用 `map` 的資料結構歷遍一次(*O(n)*)建立查詢效率 *O(1)* 的 lookup table，接著再歷遍一次做比較
 - [1. Two Sum](leetcode/0001.TwoSum/)
 
+# 基礎知識
+## Bitwise operation
+**Brian Kernighan’s Algorithm ([count set bits in an integer](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/))**
+- 用來計算一個整數的二進位表示法裡有多少的 `1`
+- 很神奇地，做一個 while loop，n > 0，並且將 n 與 (n-1) 做幾次 bitwise &，就能知道有幾個 `1`
+```
+cnt = 0
+while (n > 0):
+  n = n & (n-1)
+  cnt++
+```
 
 
 # 參考資料
