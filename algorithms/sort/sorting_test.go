@@ -1,4 +1,4 @@
-package arrayproblems
+package sort
 
 import (
 	"reflect"
