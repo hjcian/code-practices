@@ -1,4 +1,12 @@
 # Sorting algorithms
+- [Sorting algorithms](#sorting-algorithms)
+  - [selection sort](#selection-sort)
+  - [insertion sort](#insertion-sort)
+  - [bubble sort](#bubble-sort)
+  - [merge sort](#merge-sort)
+  - [quick sort](#quick-sort)
+  - [heap sort](#heap-sort)
+
 
 ## selection sort
 基本來說，選擇排序只需要重複執行兩個步驟，分別是：

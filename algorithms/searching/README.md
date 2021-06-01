@@ -1,4 +1,8 @@
 # Searching algorithms
+- [Searching algorithms](#searching-algorithms)
+  - [linear search](#linear-search)
+  - [binary search](#binary-search)
+  - [interpolation search (內插搜尋)](#interpolation-search-內插搜尋)
 
 ## linear search
 - 沒什麼好說的，就是走過一遍找到它
@@ -28,9 +32,9 @@ guessed x := x1 + (x2-x1)*(target-y1)/(y2-y1)
 ```
 
 complexity:
-完美均勻分布，可達到 O(1)，內插一次就得到
-平均來說可達到 O(log(log(n)))
-分佈根本不均勻，最差的情況則是 O(n)
+- 完美均勻分布，可達到 O(1)，內插一次就得到
+- 平均來說可達到 O(log(log(n)))
+- 若分佈根本不均勻，最差的情況則是 O(n)
 
 
 ref:
