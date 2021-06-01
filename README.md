@@ -6,8 +6,10 @@
   - [Codewars](#codewars)
   - [CodeSignal](#codesignal)
 - [思路統整](#思路統整)
-- [基礎知識](#基礎知識)
-  - [Bitwise operation](#bitwise-operation)
+- [基礎知識/DSA](#基礎知識dsa)
+  - [algorithms](#algorithms)
+  - [未分類](#未分類)
+    - [Bitwise operation](#bitwise-operation)
 - [參考資料](#參考資料)
   - [練習順序](#練習順序)
 - [Miscellaneous](#miscellaneous)
@@ -86,8 +88,13 @@
 發現題目直覺暴力解需要 *O(n<sup>2</sup>)*，則使用 `map` 的資料結構歷遍一次(*O(n)*)建立查詢效率 *O(1)* 的 lookup table，接著再歷遍一次做比較
 - [1. Two Sum](leetcode/0001.TwoSum/)
 
-# 基礎知識
-## Bitwise operation
+# 基礎知識/DSA
+## algorithms
+- [sorting](algorithms/sorting/README.md)
+- [searching](algorithms/searching/README.md)
+
+## 未分類
+### Bitwise operation
 **Brian Kernighan’s Algorithm ([count set bits in an integer](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/))**
 - 用來計算一個整數的二進位表示法裡有多少的 `1`
 - 很神奇地，做一個 while loop，n > 0，並且將 n 與 (n-1) 做幾次 bitwise &，就能知道有幾個 `1`
