@@ -24,7 +24,7 @@
 # Problems & practices
 ## Leetcode
 > ![Easy](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
-- [1. Two Sum](leetcode/0001.TwoSum/)
+- [1. Two Sum](leetcode/0001.TwoSum/) - go, python
 - [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/0026.RemoveDuplicatesFromSortedArray.go)
 - [27. Remove Element](leetcode/0027.RemoveElement/0027.RemoveElement.go)
 - [35. Search Insert position](leetcode/0035.SearchInsertPosition/)
