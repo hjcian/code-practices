@@ -1,14 +1,14 @@
 # Sorting algorithms
 - [Sorting algorithms](#sorting-algorithms)
-  - [selection sort](#selection-sort)
-  - [insertion sort](#insertion-sort)
-  - [bubble sort](#bubble-sort)
-  - [merge sort](#merge-sort)
-  - [quick sort](#quick-sort)
-  - [heap sort](#heap-sort)
+  - [Selection sort](#selection-sort)
+  - [Insertion sort](#insertion-sort)
+  - [Bubble sort](#bubble-sort)
+  - [Merge sort](#merge-sort)
+  - [Quick sort](#quick-sort)
+  - [Heap sort](#heap-sort)
 
 
-## selection sort
+## Selection sort
 基本來說，選擇排序只需要重複執行兩個步驟，分別是：
 1. 找最小值
     - 從「未排序好的數字」中找到**最小值**
@@ -23,7 +23,7 @@ traversal count: n + (n-1) + (n-2) + ... + 3 + 2 + 1
 ```
 
 ref: [初學者學演算法｜排序法入門：選擇排序與插入排序法](https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff)
-## insertion sort
+## Insertion sort
 簡單來說，插入排序法就是你玩撲克牌時用到的排序法。
 1. 讀一個數字
     - 從「未排序好的數字」最左邊中讀取一個數
@@ -34,14 +34,14 @@ complexity: O(n<sup>2</sup>)
 
 ref: [初學者學演算法｜排序法入門：選擇排序與插入排序法](https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff)
 
-## bubble sort
+## Bubble sort
 Bubble Sort 的方式是從陣列的最前面開始，一次比較陣列中兩兩相鄰的元素，然後根據大小將它們調換順序，大的移到後面
 重複一次過程，此時應已確保最大的在最後面，故排除最右邊的元素
 
 complexity: O(n<sup>2</sup>)
 ref: [[演算法] 氣泡排序法（Bubble Sort）：利用兩兩元素交換位置達到排序](https://pjchender.blogspot.com/2017/09/bubble-sort.html)
 
-## merge sort
+## Merge sort
 是一個 divide and conquer 演算法
 基本上透過 recursive 不斷將 array 二分，直到 array size==1 則直接 return
 而最小二分後拿到的左邊與右邊，再用一個 `merge()` 方法來合併
@@ -65,7 +65,55 @@ ref: [[演算法] 氣泡排序法（Bubble Sort）：利用兩兩元素交換位
 
 complexity: O(nlog(n))
 
-## quick sort
+## Quick sort
+是一個 divide and conquer 演算法
+
+利用陣列中最後一個元素（方便）當作 pivot（樞紐），並將陣列中小於 pivot 的元素往左邊放、大於 pivot 的元素往右邊放，然後 pivot 放中間
+
+接著再遞迴地重複施以此算法於兩邊的陣列，直到陣列元素只剩下一個元素為止
+
+關鍵在以 pivot 分邊的 `partition` 的動作該怎麼做
+- 直覺想到的是創建額外的空間來填（小於就填入左邊、大於則填入右邊）
+- 但其實可利用虛擬的 pointer 來表示此 pointer 的左邊皆是 ＜pivot 的元素；右邊皆是＞pivot 的元素。而此 pointer 從 index -1 開始走起即可
 
 
-## heap sort
+
+## Heap sort
+
+堆積排序(Heap Sort)演算法是利用完全二元樹(Complete Binary Tree)，也就是堆積(Heap)的資料結構來完成排序的演算法。
+
+兩大步驟：
+1. 將要排序的陣列，用 `buildHeap(array)` 製作成 **Max Heap** or **Min Heap** ，取決於你要**遞增排序**還是**遞減排序**
+2. 接著在 swap 頭尾元素值，完了之後用樣的 `buildHeap(array)` 調整陣列剩餘的部分，重複此步驟即可
+
+**Complete Binary Tree** - 完全二元樹是一種二元樹，它只允許最後一層(最底下那層)的節點數量可以不必填滿
+```
+     5
+   /   \
+  1     3
+ / \   /
+6   2 4
+```
+
+**Min Heap** - 最小堆積就是上層節點數值必定會小於下層節點數值的完全二元樹。例如以下結構即為最小堆積
+```
+     1
+   /   \
+  2     5
+ / \   /
+4   6 3
+```
+
+**Max Heap** - 最大堆積就是上層節點數值必定會大於下層節點數值的完全二元樹。例如以下結構即為最大堆積
+```
+     6
+   /   \
+  5     3
+ / \   /
+4   2 1
+```
+
+
+
+
+ref: [堆積排序(Heap Sort)演算法，利用完全二元樹來排序的演算法](https://magiclen.org/heap-sort/)
