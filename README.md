@@ -27,7 +27,7 @@
 - [1. Two Sum](leetcode/0001.TwoSum/) - go, python
 - [20. Valid Parentheses](leetcode/0020.ValidParentheses/) - python
 - [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/) - go, python
-- [27. Remove Element](leetcode/0027.RemoveElement/0027.RemoveElement.go)
+- [27. Remove Element](leetcode/0027.RemoveElement/) - go, python
 - [35. Search Insert position](leetcode/0035.SearchInsertPosition/)
 - [53. Maximum Subarray](leetcode/0053.MaximumSubarray/0053.MaximumSubarray.go)
 - [88. Merge Sorted Array](leetcode/0088.MergeSortedArray/0088.MergeSortedArray.go)
