@@ -52,6 +52,8 @@
 - [15. 3Sum](leetcode/0015.3Sum/)👁‍🗨
 - [16. 3Sum Closest](leetcode/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill
 - [19. Remove Nth Node From End of List](./leetcode/0019.RemoveNthNodeFromEndofList/0019.RemoveNthNodeFromEndofList.go)
+- [33. Search in Rotated Sorted Array](leetcode/0033.SearchinRotatedSortedArray/README.md) - python
+  - *based on binary search*
 - [39. Combination Sum](leetcode/0039.CombinationSum/0039.CombinationSum.go) 😞👁‍🗨
 - [48. Rotate Image](leetcode/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 - 54. Spiral Matrix
