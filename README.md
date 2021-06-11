@@ -28,8 +28,8 @@
 - [20. Valid Parentheses](leetcode/0020.ValidParentheses/) - python
 - [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/) - go, python
 - [27. Remove Element](leetcode/0027.RemoveElement/) - go, python
-- [35. Search Insert position](leetcode/0035.SearchInsertPosition/)
-- [53. Maximum Subarray](leetcode/0053.MaximumSubarray/0053.MaximumSubarray.go)
+- [35. Search Insert position](leetcode/0035.SearchInsertPosition/) - go
+- [53. Maximum Subarray](leetcode/0053.MaximumSubarray/) - go, python
 - [88. Merge Sorted Array](leetcode/0088.MergeSortedArray/0088.MergeSortedArray.go)
 - [219. Contains Duplicate II](leetcode/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
 - [283. Move Zeroes](leetcode/0283.MoveZeroes/0283.MoveZeroes.go)
