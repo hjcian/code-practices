@@ -24,12 +24,13 @@
 # Problems & practices
 ## Leetcode
 > ![Easy](https://img.shields.io/badge/LeetCode-Easy-brightgreen)
-- [1. Two Sum](leetcode/0001.TwoSum/) - go, python
-- [20. Valid Parentheses](leetcode/0020.ValidParentheses/) - python
-- [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/) - go, python
-- [27. Remove Element](leetcode/0027.RemoveElement/) - go, python
-- [35. Search Insert position](leetcode/0035.SearchInsertPosition/) - go
-- [53. Maximum Subarray](leetcode/0053.MaximumSubarray/) - go, python
+>
+- [1. Two Sum](leetcode/0001.TwoSum/README.md) - go, python
+- [20. Valid Parentheses](leetcode/0020.ValidParentheses/README.md) - python
+- [26. Remove Duplicates from Sorted Array](leetcode/0026.RemoveDuplicatesFromSortedArray/README.md) - go, python
+- [27. Remove Element](leetcode/0027.RemoveElement/README.md) - go, python
+- [35. Search Insert position](leetcode/0035.SearchInsertPosition/README.md) - go
+- [53. Maximum Subarray](leetcode/0053.MaximumSubarray/README.md) - go, python
 - [88. Merge Sorted Array](leetcode/0088.MergeSortedArray/0088.MergeSortedArray.go)
 - [219. Contains Duplicate II](leetcode/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
 - [283. Move Zeroes](leetcode/0283.MoveZeroes/0283.MoveZeroes.go)
@@ -46,6 +47,7 @@
 - [977. Squares of a Sorted Array](leetcode/0977.SquaresofaSortedArray/0977.SquaresofaSortedArray.go)👁‍🗨
 
 > ![Medium](https://img.shields.io/badge/LeetCode-Medium-orange)
+>
 - [2. Add Two Numbers](./leetcode/0002.AddTwoNumbers/0002.AddTwoNumbers.go)
 - [3. Longest Substring Without Repeating Characters](./leetcode/0003.LongestSubstringWithoutRepeatingCharacters/0003.LongestSubstringWithoutRepeatingCharacters.go)
 - [11. Container With Most Water](leetcode/0011.ContainerWithMostWater/0011.ContainerWithMostWater.go)👁‍🗨
@@ -62,6 +64,7 @@
 
 
 > ![Hard](https://img.shields.io/badge/LeetCode-Hard-red)
+>
 - [72. Edit Distance](leetcode/0072.EditDistance/0072.EditDistance.go)
   - related: 1143. Longest Common Subsequence ([ref](leetcode/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go))
 
