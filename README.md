@@ -5,14 +5,16 @@
   - [classic data structures & algorithms practices](#classic-data-structures--algorithms-practices)
   - [Codewars](#codewars)
   - [CodeSignal](#codesignal)
-- [思路統整](#思路統整)
+- [類似觀念集中整理](#類似觀念集中整理)
+  - [Binary search variants](#binary-search-variants)
 - [基礎知識/DSA](#基礎知識dsa)
   - [algorithms](#algorithms)
   - [未分類](#未分類)
     - [Bitwise operation](#bitwise-operation)
+    - [Miscellaneous](#miscellaneous)
 - [參考資料](#參考資料)
   - [練習順序](#練習順序)
-- [Miscellaneous](#miscellaneous)
+- [Miscellaneous](#miscellaneous-1)
   - [指令備忘錄](#指令備忘錄)
     - [Go](#go)
     - [folder management](#folder-management)
@@ -55,7 +57,6 @@
 - [16. 3Sum Closest](leetcode/0016.3SumClosest/0016.3SumClosest.go)👁‍🗨 3-pointers skill
 - [19. Remove Nth Node From End of List](./leetcode/0019.RemoveNthNodeFromEndofList/0019.RemoveNthNodeFromEndofList.go)
 - [33. Search in Rotated Sorted Array](leetcode/0033.SearchinRotatedSortedArray/README.md) - python
-  - *based on binary search*
 - [39. Combination Sum](leetcode/0039.CombinationSum/0039.CombinationSum.go) 😞👁‍🗨
 - [48. Rotate Image](leetcode/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 - 54. Spiral Matrix
@@ -89,10 +90,12 @@
 - isBeautifulString: [js](codesignal/isBeautifulString/isBeautifulString.js)
 - [composeRanges](codesignal/composeRanges/composeRanges.js)
 
-# 思路統整
+# 類似觀念集中整理
 
-發現題目直覺暴力解需要 *O(n<sup>2</sup>)*，則使用 `map` 的資料結構歷遍一次(*O(n)*)建立查詢效率 *O(1)* 的 lookup table，接著再歷遍一次做比較
-- [1. Two Sum](leetcode/0001.TwoSum/)
+## Binary search variants
+  - [SortedSearch - less than](https://www.testdome.com/questions/python/sorted-search/40608?visibility=3&skillId=9&orderBy=Difficulty) - [python](testdome/hard-practices/SortedSearch.py)
+  - [33. Search in Rotated Sorted Array](leetcode/0033.SearchinRotatedSortedArray/README.md) - python
+
 
 # 基礎知識/DSA
 ## algorithms
@@ -110,6 +113,11 @@ while (n > 0):
   n = n & (n-1)
   cnt++
 ```
+
+### Miscellaneous
+
+發現題目直覺暴力解需要 *O(n<sup>2</sup>)*，則使用 `map` 的資料結構歷遍一次(*O(n)*)建立查詢效率 *O(1)* 的 lookup table，接著再歷遍一次做比較
+- [1. Two Sum](leetcode/0001.TwoSum/)
 
 
 # 參考資料
