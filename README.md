@@ -61,6 +61,7 @@
 - [48. Rotate Image](leetcode/0048.RotateImage/0048.RotateImage.go)👁‍🗨
 - 54. Spiral Matrix
 - [56. Merge Intervals](leetcode/0056.MergeIntervals/0056.MergeIntervals.go)
+- [75. Sort Colors](leetcode/0075.SortColors/README.md) - go
 - [1143. Longest Common Subsequence](leetcode/1143.LongestCommonSubsequence/1143.LongestCommonSubsequence.go)
 
 
@@ -133,6 +134,7 @@ while (n > 0):
     - `-bench=.` 指的是當前路徑
     - `-run=none` run 原本是用來匹配想要執行的單元測試。不去設定會全跑，若想要全部都不跑就指定一個一定不存在的 pattern (none)
     - `-benchmem` 打開記憶體配置量量測
+
 ### folder management
 - `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
 - `python createFolder.py -l -t "283. Move Zeroes"` create a leetcode problem
@@ -142,7 +144,9 @@ while (n > 0):
 - [bitwise-ops: add overflow detect](interesting-problems/bitwise-ops-addOk/add_overflow_detect.go)
 - [Levenshtein Distance](leetcode/0072.EditDistance/levenshteinDistance.py)
   - [good explanation](https://medium.com/@ethannam/understanding-the-levenshtein-distance-equation-for-beginners-c4285a5604f0)
+
 ## Custom badge
 - https://shields.io/
+
 ## Partner
 - 🤘 https://github.com/hongtw/coding-life
