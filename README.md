@@ -9,6 +9,7 @@
   - [Binary search variants](#binary-search-variants)
 - [基礎知識/DSA](#基礎知識dsa)
   - [algorithms](#algorithms)
+  - [data structures](#data-structures)
   - [未分類](#未分類)
     - [Bitwise operation](#bitwise-operation)
     - [Miscellaneous](#miscellaneous)
@@ -34,6 +35,10 @@
 - [35. Search Insert position](leetcode/0035.SearchInsertPosition/README.md) - go
 - [53. Maximum Subarray](leetcode/0053.MaximumSubarray/README.md) - go, python
 - [88. Merge Sorted Array](leetcode/0088.MergeSortedArray/0088.MergeSortedArray.go)
+- tree
+  - [94. Binary Tree Inorder Traversal](leetcode/0094.BinaryTreeInorderTraversal/README.md) - go (recursive, iterative)
+  - [144. Binary Tree Preorder Traversal](leetcode/0144.BinaryTreePreorderTraversal/README.md) - go (recursive, iterative)
+  - ⚠️ [145. Binary Tree Postorder Traversal](leetcode/0145.BinaryTreePostorderTraversal/README.md) - go... iterative 還想不通 😫
 - [219. Contains Duplicate II](leetcode/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
 - [283. Move Zeroes](leetcode/0283.MoveZeroes/0283.MoveZeroes.go)
 - [287. Find the Duplicate Number](leetcode/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
@@ -102,6 +107,27 @@
 ## algorithms
 - [sorting](algorithms/sorting/README.md)
 - [searching](algorithms/searching/README.md)
+
+## data structures
+
+**tree**
+
+tree pre/in/post-order traversal 的定義： https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+
+![tree](https://media.geeksforgeeks.org/wp-content/cdn-uploads/2009/06/tree12.gif)
+
+```
+   1
+ 2   3
+4 5
+```
+
+- 所謂的 pre/in/post-order traversal 其實是深度優先（Depth First Traversals）搜尋：
+  - (a) **In**order (Left, **Root**, Right) : [4 2 5 1 3]
+  - (b) **Pre**order (**Root**, Left, Right) : [1 2 4 5 3]
+  - (c) **Post**order (Left, Right, **Root**) : [4 5 2 3 1]
+- 而廣度優先（Breadth First or Level Order Traversal）搜尋則會得到： 1 2 3 4 5
+
 
 ## 未分類
 ### Bitwise operation
