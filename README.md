@@ -34,15 +34,16 @@
 - [27. Remove Element](leetcode/0027.RemoveElement/README.md) - go, python
 - [35. Search Insert position](leetcode/0035.SearchInsertPosition/README.md) - go
 - [53. Maximum Subarray](leetcode/0053.MaximumSubarray/README.md) - go, python
+- (DP) [70. Climbing Stairs](leetcode/0070.ClimbingStairs/README.md) - go
 - [88. Merge Sorted Array](leetcode/0088.MergeSortedArray/0088.MergeSortedArray.go)
-- tree
-  - [94. Binary Tree Inorder Traversal](leetcode/0094.BinaryTreeInorderTraversal/README.md) - go (recursive, iterative)
-  - [144. Binary Tree Preorder Traversal](leetcode/0144.BinaryTreePreorderTraversal/README.md) - go (recursive, iterative)
-  - ⚠️ [145. Binary Tree Postorder Traversal](leetcode/0145.BinaryTreePostorderTraversal/README.md) - go... iterative 還想不通 😫
+- (tree) [94. Binary Tree Inorder Traversal](leetcode/0094.BinaryTreeInorderTraversal/README.md) - go (recursive, iterative)
+- (tree) [144. Binary Tree Preorder Traversal](leetcode/0144.BinaryTreePreorderTraversal/README.md) - go (recursive, iterative)
+- ⚠️ (tree) [145. Binary Tree Postorder Traversal](leetcode/0145.BinaryTreePostorderTraversal/README.md) - go... iterative 還想不通 😫
 - [219. Contains Duplicate II](leetcode/0219.ContainsDuplicateII/0219.ContainsDuplicateII.go)
 - [283. Move Zeroes](leetcode/0283.MoveZeroes/0283.MoveZeroes.go)
 - [287. Find the Duplicate Number](leetcode/0287.FindtheDuplicateNumber/0287.FindtheDuplicateNumber.go)
 - [338. Counting Bits](leetcode/0338.CountingBits/)
+- (DP) [509. Fibonacci Number](leetcode/0509.FibonacciNumber/README.md) - go
 - [532. K-diff Pairs in an Array](leetcode/0532.KdiffPairsinanArray/0532.KdiffPairsinanArray.go)
 - [561. Array Partition I](leetcode/0561.ArrayPartitionI/0561.ArrayPartitionI.go)
 - [566. Reshape the Matrix](leetcode/0566.ReshapetheMatrix/0566.ReshapetheMatrix.go)
