@@ -15,6 +15,8 @@
     - [Miscellaneous](#miscellaneous)
 - [參考資料](#參考資料)
   - [練習順序](#練習順序)
+- [Dev environment setup](#dev-environment-setup)
+  - [Enable Standard with babel-eslint/parser](#enable-standard-with-babel-eslintparser)
 - [Miscellaneous](#miscellaneous-1)
   - [指令備忘錄](#指令備忘錄)
     - [Go](#go)
@@ -152,6 +154,67 @@ while (n > 0):
 ## 練習順序
 - 👉 https://leetcode.com/problemset/all/?topicSlugs=array
 - 🚫 https://books.halfrost.com/leetcode/ChapterTwo/Array/
+
+# Dev environment setup
+## Enable Standard with babel-eslint/parser
+> references:
+> 1. https://babeljs.io/docs/en/usage
+> 2. https://www.npmjs.com/package/@babel/eslint-parser
+> 3. https://standardjs.com/#how-do-i-use-experimental-javascript-es-next-features
+
+目標是要讓 Standard 看得懂最新的語法，否則有一些 parsing error (e.g. when use class private field, we will get `Parsing error: Unexpected character '#'`) 導致無法做 auto-fix-on-save。
+
+安裝 babel 相關套件
+
+```shell
+$ npm install --save-dev @babel/core @babel/cli @babel/preset-env
+```
+
+再於 project root path 放置 `babel.config.json`。以下參考自 [babel - Usage Guide](https://babeljs.io/docs/en/usage) 的初始設置範例：
+> ⚠️ 內容可能無所謂，只是為了讓 Standard 運作時不要出現找不到 Babel config 的錯誤
+
+```json
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "edge": "17",
+          "firefox": "60",
+          "chrome": "67",
+          "safari": "11.1"
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.6.5"
+      }
+    ]
+  ]
+}
+```
+
+安裝 `babel-eslint-parser` 相關套件
+```shell
+$ npm install eslint @babel/core @babel/eslint-parser --save-dev
+```
+再於 project root path 放置 `.eslintrc.js`，在此指定要使用何種 parser 來做 linting：
+```js
+module.exports = {
+  parser: "@babel/eslint-parser",
+};
+```
+
+最後再於 `package.js` 中設定 `standard` 使用 `@babel/eslint-parser`：
+
+```json
+{
+  ...
+  "standard": {
+    "parser": "@babel/eslint-parser"
+  },
+  ...
+}
+```
 
 # Miscellaneous
 ## 指令備忘錄
