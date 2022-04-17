@@ -31,3 +31,35 @@ func quickSort(nums []int) []int {
 	quickUtil(nums, 0, len(nums)-1)
 	return nums
 }
+
+func quickSort_20220417(nums []int) []int {
+	quickSortUtil_20220417(nums, 0, len(nums)-1)
+	return nums
+}
+
+func quickSortUtil_20220417(nums []int, start, end int) []int {
+	if end-start <= 1 {
+		return nums
+	}
+
+	// do partition
+	p := partition_20220417(nums, start, end)
+	quickSortUtil_20220417(nums, start, p-1)
+	quickSortUtil_20220417(nums, p+1, end)
+	return nums
+}
+
+func partition_20220417(nums []int, start, end int) int {
+	i := start
+	p := end
+	for i < p {
+		if nums[p-1] <= nums[p] {
+			nums[i], nums[p-1] = nums[p-1], nums[i]
+			i++
+		} else {
+			nums[p-1], nums[p] = nums[p], nums[p-1]
+			p--
+		}
+	}
+	return p
+}

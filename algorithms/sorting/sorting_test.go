@@ -28,13 +28,14 @@ func Test_Sortings(t *testing.T) {
 		{"bubbleSort_20220417", bubbleSort_20220417},
 		{"mergeSort", mergeSort},
 		{"quickSort", quickSort},
+		{"quickSort_20220417", quickSort_20220417},
 		{"heapSort", heapSort},
 	}
 	for _, tt := range tests {
 		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			if got := tt.fn(deepCopy(giveNums)); !reflect.DeepEqual(got, wantNums) {
-				t.Errorf("got=%v, want=%v", got, wantNums)
+				t.Errorf("give=%v, got=%v, want=%v", giveNums, got, wantNums)
 			}
 		})
 	}
