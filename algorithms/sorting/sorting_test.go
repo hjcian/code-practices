@@ -30,6 +30,7 @@ func Test_Sortings(t *testing.T) {
 		{"quickSort", quickSort},
 		{"quickSort_20220417", quickSort_20220417},
 		{"heapSort", heapSort},
+		{"heapSort_20220417", heapSort_20220417},
 	}
 	for _, tt := range tests {
 		tt := tt

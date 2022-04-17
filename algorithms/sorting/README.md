@@ -86,9 +86,13 @@ complexity: $O(nlog(n))$
 
 堆積排序(Heap Sort)演算法是利用完全二元樹(Complete Binary Tree)，也就是堆積(Heap)的資料結構來完成排序的演算法。
 
-兩大步驟：
-1. 將要排序的陣列，用 `buildHeap(array)` 製作成 **Max Heap** or **Min Heap** ，取決於你要**遞增排序**還是**遞減排序**
-2. 接著在 swap 頭尾元素值，完了之後用樣的 `buildHeap(array)` 調整陣列剩餘的部分，重複此步驟即可
+通常會分解成三塊：
+- `heapify`: 指定位置，將它的 subtree 做完 heap
+- `build_heap`: 從 (n-1)/2，最末的 parent node 開始做 heapify，將 array 變成一個 heap
+- `heap_sort`:
+  - 使用 `build_heap` 將 array 做成 heap
+  - 從最後一個元素開始跟 root 交換
+  - 交換完，限縮長度，僅對 root node 做 `heapify` 即可
 
 **Complete Binary Tree** - 完全二元樹是一種二元樹，它只允許最後一層(最底下那層)的節點數量可以不必填滿
 ```
@@ -103,9 +107,9 @@ complexity: $O(nlog(n))$
 ```
      1
    /   \
-  2     5
+  2     3
  / \   /
-4   6 3
+4   6 5
 ```
 
 **Max Heap** - 最大堆積就是上層節點數值必定會大於下層節點數值的完全二元樹。例如以下結構即為最大堆積
@@ -117,7 +121,6 @@ complexity: $O(nlog(n))$
 4   2 1
 ```
 
-
-
-
-ref: [堆積排序(Heap Sort)演算法，利用完全二元樹來排序的演算法](https://magiclen.org/heap-sort/)
+ref:
+- [堆積排序(Heap Sort)演算法，利用完全二元樹來排序的演算法](https://magiclen.org/heap-sort/)
+- 乾淨利落的中國人解說：https://www.youtube.com/watch?v=j-DqQcNPGbE
