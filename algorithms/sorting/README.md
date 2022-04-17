@@ -1,5 +1,6 @@
 # Sorting algorithms
 - [Sorting algorithms](#sorting-algorithms)
+  - [TL;DR](#tldr)
   - [Selection sort](#selection-sort)
   - [Insertion sort](#insertion-sort)
   - [Bubble sort](#bubble-sort)
@@ -7,6 +8,11 @@
   - [Quick sort](#quick-sort)
   - [Heap sort](#heap-sort)
 
+## TL;DR
+
+![picture 1](https://i.imgur.com/3xsBz43.png)
+
+ref: http://notepad.yehyeh.net/Content/Algorithm/Sort/Sort.php
 
 ## Selection sort
 基本來說，選擇排序只需要重複執行兩個步驟，分別是：
