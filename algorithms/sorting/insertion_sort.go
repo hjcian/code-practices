@@ -17,11 +17,28 @@ func insertionSort(nums []int) []int {
 	return nums
 }
 
-func insertionSort0531(nums []int) []int {
+func insertionSort_20210531(nums []int) []int {
 	for i := 1; i < len(nums); i++ {
 		for j := i; j > 0; j-- {
 			if nums[j] < nums[j-1] {
 				nums[j], nums[j-1] = nums[j-1], nums[j]
+			} else {
+				break
+			}
+		}
+	}
+	return nums
+}
+
+func insertionSort_20220417(nums []int) []int {
+	if len(nums) <= 1 {
+		return nums
+	}
+
+	for i := 1; i < len(nums); i++ {
+		for j := i; j > 0; j-- {
+			if nums[j-1] > nums[j] {
+				nums[j-1], nums[j] = nums[j], nums[j-1]
 			} else {
 				break
 			}

@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+type sortFn func(nums []int) []int
+
 func deepCopy(src []int) []int {
 	dest := make([]int, len(src))
 	copy(dest, src)
@@ -12,49 +14,26 @@ func deepCopy(src []int) []int {
 }
 
 func Test_Sortings(t *testing.T) {
-	type args struct {
-		nums []int
-	}
+	giveNums := []int{54, 26, 93, 17, 77, 31, 44, 55, 20}
+	wantNums := []int{17, 20, 26, 31, 44, 54, 55, 77, 93}
 	tests := []struct {
 		name string
-		args args
-		want []int
+		fn   sortFn
 	}{
-		{
-			"Sample:",
-			args{[]int{54, 26, 93, 17, 77, 31, 44, 55, 20}},
-			[]int{17, 20, 26, 31, 44, 54, 55, 77, 93},
-		},
+		{"selectionSort", selectionSort},
+		{"insertionSort", insertionSort},
+		{"insertionSort_20210531", insertionSort_20210531},
+		{"insertionSort_20220417", insertionSort_20220417},
+		{"bubbleSort", bubbleSort},
+		{"mergeSort", mergeSort},
+		{"quickSort", quickSort},
+		{"heapSort", heapSort},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name+"selectionSort", func(t *testing.T) {
-			if got := selectionSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("selectionSort() = %v, want %v", got, tt.want)
-			}
-		})
-		t.Run(tt.name+"insertionSort", func(t *testing.T) {
-			if got := insertionSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("insertionSort() = %v, want %v", got, tt.want)
-			}
-		})
-		t.Run(tt.name+"bubbleSort", func(t *testing.T) {
-			if got := bubbleSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("bubbleSort() = %v, want %v", got, tt.want)
-			}
-		})
-		t.Run(tt.name+"mergeSort", func(t *testing.T) {
-			if got := mergeSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("mergeSort() = %v, want %v", got, tt.want)
-			}
-		})
-		t.Run(tt.name+"quickSort", func(t *testing.T) {
-			if got := quickSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("quickSort() = %v, want %v", got, tt.want)
-			}
-		})
-		t.Run(tt.name+"heapSort", func(t *testing.T) {
-			if got := heapSort(deepCopy(tt.args.nums)); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("heapSort() = %v, want %v", got, tt.want)
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			if got := tt.fn(deepCopy(giveNums)); !reflect.DeepEqual(got, wantNums) {
+				t.Errorf("got=%v, want=%v", got, wantNums)
 			}
 		})
 	}
