@@ -1,18 +1,20 @@
-# Sorting algorithms
+- [TL;DR](#tldr)
 - [Sorting algorithms](#sorting-algorithms)
-  - [TL;DR](#tldr)
   - [Selection sort](#selection-sort)
   - [Insertion sort](#insertion-sort)
   - [Bubble sort](#bubble-sort)
   - [Merge sort](#merge-sort)
   - [Quick sort](#quick-sort)
   - [Heap sort](#heap-sort)
+- [進階問題探討](#進階問題探討)
+  - [實務上不採用 heap sort 的原因](#實務上不採用-heap-sort-的原因)
 
-## TL;DR
+# TL;DR
 
 ![picture 1](https://i.imgur.com/3xsBz43.png)
 
 ref: http://notepad.yehyeh.net/Content/Algorithm/Sort/Sort.php
+# Sorting algorithms
 
 ## Selection sort
 基本來說，選擇排序只需要重複執行兩個步驟，分別是：
@@ -130,3 +132,14 @@ complexity: $O(nlog(n))$
 ref:
 - [堆積排序(Heap Sort)演算法，利用完全二元樹來排序的演算法](https://magiclen.org/heap-sort/)
 - 乾淨利落的中國人解說：https://www.youtube.com/watch?v=j-DqQcNPGbE
+
+# 進階問題探討
+## 實務上不採用 heap sort 的原因
+> [为什么在平均情况下快速排序比堆排序要优秀？](https://www.zhihu.com/question/23873747)
+
+- 雖然 heap sort 從數學上的分析，是理論上最快速的排序
+- 但實務上，考慮到計算機的架構，在有 CPU cache 的情境下， heap sort 反而比較慢
+  - temporal locality，也就是不久前读取过的一个数据，在之后很可能还会被读取一遍
+  - spatial locality，也就是说读取一个数据，在它周围内存地址存储的数据也很有可能被读取到。
+- 因為 heap sort 要做比較的數值通常相隔很遠，導致 CPU cache 沒有辦法發揮作用、而真的從 memory 中讀取資料
+  - read from memory >>> read from CPU cache
