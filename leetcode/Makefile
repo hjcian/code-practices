@@ -1,2 +1,6 @@
-build:
-	go build -o gen_folder cmd/main.go
+Q?=
+create:
+	go run cmd/main.go "$(Q)"
+
+test:
+	go test ./... -run="$(Q)"

@@ -45,11 +45,11 @@ func genName(title string) string {
 	if len(tokens) != 2 {
 		log.Fatal("expect title is formatted as: `<N>. <Camel> <Case>`")
 	}
-	num, err := strconv.Atoi(tokens[0])
+	questionNumber, err := strconv.Atoi(tokens[0])
 	if err != nil {
 		log.Fatal(err, "expect title has number, N: `<N>. <Camel> <Case>`")
 	}
-	formattedNum := fmt.Sprintf("%04d", num)
+	formattedNum := fmt.Sprintf("%04d", questionNumber)
 	formattedText := strings.ReplaceAll(tokens[1], " ", "")
 	return formattedNum + "." + formattedText
 }
@@ -62,7 +62,7 @@ func checkFileExists(path string) error {
 	return fmt.Errorf("`%s` exists (%d bytes)", stat.Name(), stat.Size())
 }
 
-func writeREADME(root string) error {
+func writeReadmeFile(root string) error {
 	readmeFile := filepath.Join(root, "README.md")
 	if err := checkFileExists(readmeFile); err != nil {
 		return err
@@ -76,9 +76,9 @@ func writeREADME(root string) error {
 	return ioutil.WriteFile(readmeFile, []byte(strings.TrimSpace(content)), 0644)
 }
 
-func writeMain(root, name string) error {
-	readmeFile := filepath.Join(root, name+".go")
-	if err := checkFileExists(readmeFile); err != nil {
+func writeMainFile(root, name string) error {
+	fpath := filepath.Join(root, name+".go")
+	if err := checkFileExists(fpath); err != nil {
 		return err
 	}
 
@@ -86,7 +86,29 @@ func writeMain(root, name string) error {
 	content := fmt.Sprintf(`
 package %s
 `, packageName)
-	return ioutil.WriteFile(readmeFile, []byte(strings.TrimSpace(content)), 0644)
+	return ioutil.WriteFile(fpath, []byte(strings.TrimSpace(content)), 0644)
+}
+
+func writeTestFile(root, name string) error {
+	fpath := filepath.Join(root, name+"_test.go")
+	if err := checkFileExists(fpath); err != nil {
+		return err
+	}
+
+	packageName := strings.ToLower(strings.Split(name, ".")[1])
+
+	testFuncName := strings.ReplaceAll(name, ".", "_")
+	content := fmt.Sprintf(`
+package %s
+
+import "testing"
+
+func Test_%s(t *testing.T) {
+
+}
+
+`, packageName, testFuncName)
+	return ioutil.WriteFile(fpath, []byte(strings.TrimSpace(content)), 0644)
 }
 
 func main() {
@@ -107,11 +129,15 @@ func main() {
 	folderPath := filepath.Join(rootPath, name)
 	os.Mkdir(folderPath, 0755)
 
-	if err := writeREADME(folderPath); err != nil {
-		log.Printf("%s: %s", "writeREADME error", err)
+	if err := writeReadmeFile(folderPath); err != nil {
+		log.Printf("%s: %s", "create readme error", err)
 	}
 
-	if err := writeMain(folderPath, name); err != nil {
-		log.Printf("%s: %s", "writeMain error", err)
+	if err := writeMainFile(folderPath, name); err != nil {
+		log.Printf("%s: %s", "create main error", err)
+	}
+
+	if err := writeTestFile(folderPath, name); err != nil {
+		log.Printf("%s: %s", "creat test error", err)
 	}
 }
