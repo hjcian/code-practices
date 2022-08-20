@@ -1,7 +1,5 @@
 package twosum
 
-import "fmt"
-
 func twoSum(nums []int, target int) []int {
 	diffSet := make(map[int][]int)
 
@@ -38,14 +36,27 @@ func twoSum20210528(nums []int, target int) []int {
 	for i := range nums {
 		lookupTable[target-nums[i]] = i
 	}
-	fmt.Println(nums, target)
-	fmt.Println(lookupTable)
 	res := []int{}
 	for i := range nums {
 		if pairIdx, ok := lookupTable[nums[i]]; ok && i < pairIdx {
 			res = append(res, i, pairIdx)
 		}
 	}
-	fmt.Println(res)
 	return res
+}
+
+func twoSum20220820(nums []int, target int) []int {
+	// Runtime: 4 ms, faster than 95.01% of Go online submissions for Two Sum.
+	// Memory Usage: 4.7 MB, less than 13.57% of Go online submissions for Two Sum.
+	hashmap := make(map[int]int, len(nums))
+	for j, num := range nums {
+		hashmap[target-num] = j
+	}
+
+	for i, num := range nums {
+		if j, ok := hashmap[num]; ok && i != j {
+			return []int{i, j}
+		}
+	}
+	return []int{-99, -99}
 }

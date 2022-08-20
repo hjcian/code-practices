@@ -39,9 +39,17 @@ func Test_1(t *testing.T) {
 			}
 		}
 	})
-	t.Run("2021-05-28 try", func(t *testing.T) {
+	t.Run("twoSum20210528", func(t *testing.T) {
 		for _, test := range testSuits {
 			got := twoSum20210528(test.input.nums, test.input.target)
+			if !reflect.DeepEqual(got, test.expect) {
+				t.Errorf("[%v] expect '%v', got '%v' ", test.name, test.expect, got)
+			}
+		}
+	})
+	t.Run("twoSum20220820", func(t *testing.T) {
+		for _, test := range testSuits {
+			got := twoSum20220820(test.input.nums, test.input.target)
 			if !reflect.DeepEqual(got, test.expect) {
 				t.Errorf("[%v] expect '%v', got '%v' ", test.name, test.expect, got)
 			}
