@@ -32,9 +32,16 @@ func getLeetCodePath() string {
 	exePath := getExePath()
 	pwd := getPWD()
 	if strings.HasSuffix(exePath, "leetcode") {
+		log.Printf("executable path: %s", exePath)
 		return exePath
 	} else if strings.HasSuffix(pwd, "leetcode") {
+		log.Printf("pwd: %s", pwd)
 		return pwd
+	}
+
+	if info, err := os.Stat(pwd + "/leetcode"); err == nil && info.IsDir() {
+		log.Println(pwd + "/leetcode")
+		return pwd + "/leetcode"
 	}
 	log.Fatal("where are you?")
 	return ""
@@ -43,11 +50,11 @@ func getLeetCodePath() string {
 func genName(title string) string {
 	tokens := strings.Split(title, ".")
 	if len(tokens) != 2 {
-		log.Fatal("expect title is formatted as: `<N>. <Camel> <Case>`")
+		log.Fatal("expect title is formatted as: `<N>. <Title>`")
 	}
 	questionNumber, err := strconv.Atoi(tokens[0])
 	if err != nil {
-		log.Fatal(err, "expect title has number, N: `<N>. <Camel> <Case>`")
+		log.Fatal(err, "expect title has number, N: `<N>. <Title>`")
 	}
 	formattedNum := fmt.Sprintf("%04d", questionNumber)
 	formattedText := strings.ReplaceAll(tokens[1], " ", "")
@@ -127,6 +134,8 @@ func main() {
 	log.Println("formatted title:", name)
 
 	folderPath := filepath.Join(rootPath, name)
+	log.Printf("%s will be created", folderPath)
+
 	os.Mkdir(folderPath, 0755)
 
 	if err := writeReadmeFile(folderPath); err != nil {

@@ -8,3 +8,7 @@ source:
 
 tidy:
 	@go mod tidy
+
+q?=
+create:
+	@go run cmd/main.go "$(q)"
