@@ -12,3 +12,7 @@ tidy:
 q?=
 create:
 	@go run cmd/main.go "$(q)"
+
+target?=
+test:
+	@go test $(shell go list ./leetcode/... | grep $(shell printf "%04d" $(q))) -run=$(target)
