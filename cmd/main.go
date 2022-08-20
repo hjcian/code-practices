@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -11,54 +12,60 @@ import (
 	"strings"
 )
 
-func getExePath() string {
+func getExePath() (string, error) {
 	ex, err := os.Executable()
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
 	dir := filepath.Dir(ex)
-	return dir
+	return dir, nil
 }
 
-func getPWD() string {
+func getPWD() (string, error) {
 	pwd, err := os.Getwd()
 	if err != nil {
-		log.Fatal(err)
+		return "", err
 	}
-	return pwd
+	return pwd, nil
 }
 
-func getLeetCodePath() string {
-	exePath := getExePath()
-	pwd := getPWD()
+func getLeetCodePath() (string, error) {
+	exePath, err := getExePath()
+	if err != nil {
+		return "", err
+	}
+
+	pwd, err := getPWD()
+	if err != nil {
+		return "", err
+	}
+
 	if strings.HasSuffix(exePath, "leetcode") {
-		log.Printf("executable path: %s", exePath)
-		return exePath
+		return exePath, nil
 	} else if strings.HasSuffix(pwd, "leetcode") {
-		log.Printf("pwd: %s", pwd)
-		return pwd
+		return pwd, nil
 	}
 
 	if info, err := os.Stat(pwd + "/leetcode"); err == nil && info.IsDir() {
 		log.Println(pwd + "/leetcode")
-		return pwd + "/leetcode"
+		return pwd + "/leetcode", nil
 	}
-	log.Fatal("where are you?")
-	return ""
+
+	return "", errors.New("where are you?")
 }
 
-func genName(title string) string {
+func genName(title string) (string, error) {
 	tokens := strings.Split(title, ".")
 	if len(tokens) != 2 {
-		log.Fatal("expect title is formatted as: `<N>. <Title>`")
+		return "", errors.New("expect title is formatted as: `<N>. <Title>`")
 	}
 	questionNumber, err := strconv.Atoi(tokens[0])
 	if err != nil {
-		log.Fatal(err, "expect title has number, N: `<N>. <Title>`")
+		return "", fmt.Errorf("expect title has number, N: `<N>. <Title>`: %w", err)
 	}
 	formattedNum := fmt.Sprintf("%04d", questionNumber)
 	formattedText := strings.ReplaceAll(tokens[1], " ", "")
-	return formattedNum + "." + formattedText
+	return formattedNum + "." + formattedText, nil
 }
 
 func checkFileExists(path string) error {
@@ -127,26 +134,31 @@ func main() {
 	}
 
 	title := args[0]
-	rootPath := getLeetCodePath()
-	log.Println("checked rootPath:", rootPath)
+	rootPath, err := getLeetCodePath()
+	logOrFatal(err, "checked rootPath:", rootPath)
 
-	name := genName(title)
-	log.Println("formatted title:", name)
+	name, err := genName(title)
+	logOrFatal(err, "formatted title:", name)
 
 	folderPath := filepath.Join(rootPath, name)
-	log.Printf("%s will be created", folderPath)
-
+	logfOrFatal(nil, "%s will be created", folderPath)
 	os.Mkdir(folderPath, 0755)
 
-	if err := writeReadmeFile(folderPath); err != nil {
-		log.Printf("%s: %s", "create readme error", err)
-	}
+	logfOrFatal(writeReadmeFile(folderPath), "create readme (%s)", folderPath)
+	logfOrFatal(writeMainFile(folderPath, name), "create main (%s/%s)", folderPath, name)
+	logfOrFatal(writeTestFile(folderPath, name), "creat test (%s/%s)", folderPath, name)
+}
 
-	if err := writeMainFile(folderPath, name); err != nil {
-		log.Printf("%s: %s", "create main error", err)
+func logOrFatal(err error, v ...any) {
+	log.Println(v...)
+	if err != nil {
+		log.Fatal("[ERROR]", err.Error())
 	}
+}
 
-	if err := writeTestFile(folderPath, name); err != nil {
-		log.Printf("%s: %s", "creat test error", err)
+func logfOrFatal(err error, format string, v ...any) {
+	log.Printf(format, v...)
+	if err != nil {
+		log.Fatal("[ERROR]", err.Error())
 	}
 }
