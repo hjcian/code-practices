@@ -5,3 +5,6 @@ venv:
 
 source:
 	ln -s env/bin/activate
+
+tidy:
+	@go mod tidy
