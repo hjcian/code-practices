@@ -17,3 +17,17 @@ func Test_0232_ImplementQueueUsingStacks(t *testing.T) {
 	require.Equal(t, 2, q.Pop())
 	require.True(t, q.Empty())
 }
+
+func Test_0232_ImplementQueueUsingStacks_17_22(t *testing.T) {
+	q := Constructor()
+	q.Push(1)
+	q.Push(2)
+	q.Push(3)
+	q.Push(4)
+	require.Equal(t, 1, q.Pop())
+	q.Push(5)
+	require.Equal(t, 2, q.Pop())
+	require.Equal(t, 3, q.Pop())
+	require.Equal(t, 4, q.Pop())
+	require.Equal(t, 5, q.Pop())
+}

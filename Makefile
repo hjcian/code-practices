@@ -15,4 +15,4 @@ create:
 
 target?=
 test:
-	@go test $(shell go list ./leetcode/... | grep $(shell printf "%04d" $(q))) -run=$(target)
+	@go test $(shell go list ./leetcode/... | grep $(q)) -run=$(target) -v
