@@ -1,8 +1,8 @@
 個人程式碼練習集中存放區
 
-- [Problems & practices](#problems--practices)
+- [Problems \& practices](#problems--practices)
   - [Leetcode](#leetcode)
-  - [classic data structures & algorithms practices](#classic-data-structures--algorithms-practices)
+  - [classic data structures \& algorithms practices](#classic-data-structures--algorithms-practices)
   - [Codewars](#codewars)
   - [CodeSignal](#codesignal)
 - [類似觀念集中整理](#類似觀念集中整理)
@@ -10,9 +10,10 @@
 - [基礎知識/DSA](#基礎知識dsa)
   - [algorithms](#algorithms)
   - [data structures](#data-structures)
-  - [未分類](#未分類)
-    - [Bitwise operation](#bitwise-operation)
-    - [Miscellaneous](#miscellaneous)
+  - [Bitwise operation](#bitwise-operation)
+    - [XOR 特性](#xor-特性)
+    - [**Brian Kernighan’s Algorithm (count set bits in an integer)**](#brian-kernighans-algorithm-count-set-bits-in-an-integer)
+  - [Miscellaneous](#miscellaneous)
 - [參考資料](#參考資料)
   - [練習順序](#練習順序)
 - [Dev environment setup](#dev-environment-setup)
@@ -131,10 +132,26 @@ tree pre/in/post-order traversal 的定義： https://www.geeksforgeeks.org/tree
   - (c) **Post**order (Left, Right, **Root**) : [4 5 2 3 1]
 - 而廣度優先（Breadth First or Level Order Traversal）搜尋則會得到： 1 2 3 4 5
 
+## Bitwise operation
 
-## 未分類
-### Bitwise operation
-**Brian Kernighan’s Algorithm ([count set bits in an integer](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/))**
+### XOR 特性
+> https://zh.wikipedia.org/zh-tw/%E9%80%BB%E8%BE%91%E5%BC%82%E6%88%96
+>
+```
+基本規則：
+p:   0 1 0 1
+q:   0 0 1 1
+p^q: 0 1 1 0
+
+交換律： p^q = q^p
+結合律： (p^q)^r = p^(q^r)
+      = q^(r^p)
+恆等律： p^0 = p
+歸零律： p^p = 0
+自反： p^q^q = p^0 = p
+```
+
+### **Brian Kernighan’s Algorithm ([count set bits in an integer](https://www.geeksforgeeks.org/count-set-bits-in-an-integer/))**
 - 用來計算一個整數的二進位表示法裡有多少的 `1`
 - 很神奇地，做一個 while loop，n > 0，並且將 n 與 (n-1) 做幾次 bitwise &，就能知道有幾個 `1`
 ```
@@ -144,7 +161,7 @@ while (n > 0):
   cnt++
 ```
 
-### Miscellaneous
+## Miscellaneous
 
 發現題目直覺暴力解需要 *O(n<sup>2</sup>)*，則使用 `map` 的資料結構歷遍一次(*O(n)*)建立查詢效率 *O(1)* 的 lookup table，接著再歷遍一次做比較
 - [1. Two Sum](leetcode/0001.TwoSum/)
