@@ -1,6 +1,20 @@
 package sort
 
 func bubbleSort(nums []int) []int {
+	if len(nums) <= 1 {
+		return nums
+	}
+	for end := len(nums) - 1; end > 0; end-- {
+		for i := 0; i < end; i++ {
+			if nums[i] > nums[i+1] {
+				swap(nums, i, i+1)
+			}
+		}
+	}
+	return nums
+}
+
+func bubbleSort_20210531(nums []int) []int {
 	end := len(nums)
 	// if end == 1，表示只剩下一個元素可排序 = 不用排序
 	for end > 1 {
