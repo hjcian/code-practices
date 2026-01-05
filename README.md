@@ -20,7 +20,7 @@
   - [Enable Standard with babel-eslint/parser](#enable-standard-with-babel-eslintparser)
 - [Miscellaneous](#miscellaneous-1)
   - [指令備忘錄](#指令備忘錄)
-    - [Go](#go)
+    - [Run the Go test](#run-the-go-test)
     - [folder management](#folder-management)
   - [有趣的議題](#有趣的議題)
   - [Custom badge](#custom-badge)
@@ -235,12 +235,45 @@ module.exports = {
 
 # Miscellaneous
 ## 指令備忘錄
-### Go
-- test/benchmark (https://my.oschina.net/solate/blog/3034188)
-  - `go test -bench=. -run=none -benchmem`
-    - `-bench=.` 指的是當前路徑
-    - `-run=none` run 原本是用來匹配想要執行的單元測試。不去設定會全跑，若想要全部都不跑就指定一個一定不存在的 pattern (none)
-    - `-benchmem` 打開記憶體配置量量測
+### Run the Go test
+
+Add the following script to `.zshrc` or `.bashrc` then reload it:
+
+```shell
+#  Golang testing helper
+gtest() {
+  local funcName=$1
+
+  # Find the file containing this function (excluding test files)
+  local filePath=$(grep -r "func $funcName" --include="*.go" --exclude="*_test.go" . 2>/dev/null | head -1 | cut -d: -f1)
+
+  if [ -z "$filePath" ]; then
+    echo "Error: Could not find function '$funcName'"
+    return 1
+  fi
+
+  # Get the directory
+  local dir=$(dirname "$filePath")
+
+  # Find test functions containing the function name (case-insensitive)
+  local testName=$(grep -r "func Test" "$dir" --include="*_test.go" 2>/dev/null | grep -i "$funcName" | head -1 | sed 's/.*func \(Test[A-Za-z0-9]*\).*/\1/')
+
+  if [ -z "$testName" ]; then
+    echo "Error: Could not find test case for '$funcName' in $dir"
+    return 1
+  fi
+
+  echo "Running: go test ./$dir -run $testName -v -count=1"
+  go test "./$dir" -run "$testName" -v -count=1
+}
+```
+
+Run the test by specifying the function name, e.g., to test `selectionSort` function in [`selection_sort.go`](./algorithms/sorting/selection_sort.go):
+
+```shell
+$ gtest selectionSort
+```
+
 
 ### folder management
 - `python createFolder.py -c -t "convertIPv4"` create a codesignal problem
