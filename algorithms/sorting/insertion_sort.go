@@ -1,8 +1,24 @@
 package sort
 
+func insertionSort(nums []int) []int {
+	if len(nums) <= 1 {
+		return nums
+	}
+	for i := 1; i < len(nums); i++ {
+		for j := i; j > 0; j-- {
+			if nums[j] < nums[j-1] {
+				swap(nums, j, j-1)
+			} else {
+				break // no need to continue
+			}
+		}
+	}
+	return nums
+}
+
 // move i, compare the all left j to find i's position
 // insertion 的意義為，將 i 插到左邊適當的位置
-func insertionSort(nums []int) []int {
+func insertionSort_20210531_1(nums []int) []int {
 	numsLen := len(nums)
 	for i := 1; i < numsLen; i++ {
 		cursor := i - 1
@@ -17,7 +33,7 @@ func insertionSort(nums []int) []int {
 	return nums
 }
 
-func insertionSort_20210531(nums []int) []int {
+func insertionSort_20210531_2(nums []int) []int {
 	for i := 1; i < len(nums); i++ {
 		for j := i; j > 0; j-- {
 			if nums[j] < nums[j-1] {
