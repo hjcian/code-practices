@@ -1,5 +1,41 @@
 package sort
 
+import "fmt"
+
+func quickSort_20260106(nums []int) []int {
+	recurrence_20260106(nums, 0, len(nums)-1)
+	fmt.Println("Final:", nums)
+	return nums
+}
+
+func recurrence_20260106(nums []int, left, right int) {
+	if left >= right {
+		return
+	}
+	fmt.Println("Given", nums[left:right+1])
+
+	pivotIdx := partition_20260106(nums, left, right)
+	fmt.Println("Result:", nums[left:right+1])
+	fmt.Println("Pivot:", nums[pivotIdx], ", idx:", pivotIdx)
+
+	recurrence_20260106(nums, left, pivotIdx-1)
+	recurrence_20260106(nums, pivotIdx+1, right)
+}
+
+func partition_20260106(nums []int, left, right int) int {
+	pivot := nums[right]
+	pivotIdx := left - 1
+	for i := left; i < right; i++ {
+		if nums[i] < pivot {
+			pivotIdx++
+			nums[i], nums[pivotIdx] = nums[pivotIdx], nums[i]
+		}
+	}
+	pivotIdx++
+	nums[pivotIdx], nums[right] = nums[right], nums[pivotIdx]
+	return pivotIdx
+}
+
 func partition(nums []int, left, right int) int {
 	pivot := nums[right]
 	i := left - 1 // 目前可能是左邊或右邊了，所以從左邊的 index-1 開始

@@ -3,8 +3,8 @@
   - [Selection sort](#selection-sort)
   - [Insertion sort](#insertion-sort)
   - [Bubble sort](#bubble-sort)
-  - [Merge sort](#merge-sort)
   - [Quick sort](#quick-sort)
+  - [Merge sort](#merge-sort)
   - [Heap sort](#heap-sort)
 - [進階問題探討](#進階問題探討)
   - [實務上不採用 heap sort 的原因](#實務上不採用-heap-sort-的原因)
@@ -49,6 +49,24 @@ Bubble Sort 的方式是從陣列的最前面開始，一次比較陣列中兩�
 complexity: O(n<sup>2</sup>)
 ref: [[演算法] 氣泡排序法（Bubble Sort）：利用兩兩元素交換位置達到排序](https://pjchender.blogspot.com/2017/09/bubble-sort.html)
 
+
+## Quick sort
+
+- 是一種 **divide and conquer** 演算法
+- 利用陣列中最後一個元素（方便）當作 pivot（樞紐），並將陣列中小於 pivot 的元素往左邊放、大於 pivot 的元素往右邊放，然後 pivot 放中間
+- 接著再遞迴地重複施以此算法於兩邊的陣列，直到陣列元素只剩下一個元素為止
+- 關鍵在以 pivot 分邊的 `partition` 的動作該怎麼做
+  - 直覺想到的是創建額外的空間來填（小於就填入左邊、大於則填入右邊）
+  - 或是利用 two pointers 來挪動小於 pivot 及大於 pivot 的數值
+    - 設計一個 recursive function (nums, start, end)
+    - end 指的就是我們的 pivot
+    - function 內比較 pivot-1 與 pivot 的大小；
+      - 若 pivot-1 較小，則與 start 調換位置，start pointer++
+      - 若 pivot-1 較大，則與 pivot 調換位置，pivot pointer--
+      - 直到start pointer 與 pivot pointer 相撞為止
+      - 最後再呼叫 recursive function 丟進 (nums, start, pivot-1) 與 (nums, pivot+1, end)
+
+
 ## Merge sort
 - 是一種 **divide and conquer** 演算法
 - 基本想法是透過 recursive 不斷將 array 二分，直到 array size==1 則直接 return
@@ -73,22 +91,6 @@ ref: [[演算法] 氣泡排序法（Bubble Sort）：利用兩兩元素交換位
 需要在 merge 時注意，處理元素值相等時，以左邊的優先即可
 
 complexity: $O(nlog(n))$
-
-## Quick sort
-
-- 也是一個 divide and conquer 演算法
-- 利用陣列中最後一個元素（方便）當作 pivot（樞紐），並將陣列中小於 pivot 的元素往左邊放、大於 pivot 的元素往右邊放，然後 pivot 放中間
-- 接著再遞迴地重複施以此算法於兩邊的陣列，直到陣列元素只剩下一個元素為止
-- 關鍵在以 pivot 分邊的 `partition` 的動作該怎麼做
-  - 直覺想到的是創建額外的空間來填（小於就填入左邊、大於則填入右邊）
-  - 或是利用 two pointers 來挪動小於 pivot 及大於 pivot 的數值
-    - 設計一個 recursive function (nums, start, end)
-    - end 指的就是我們的 pivot
-    - function 內比較 pivot-1 與 pivot 的大小；
-      - 若 pivot-1 較小，則與 start 調換位置，start pointer++
-      - 若 pivot-1 較大，則與 pivot 調換位置，pivot pointer--
-      - 直到start pointer 與 pivot pointer 相撞為止
-      - 最後再呼叫 recursive function 丟進 (nums, start, pivot-1) 與 (nums, pivot+1, end)
 
 ## Heap sort
 
