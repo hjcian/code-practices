@@ -1,5 +1,47 @@
 package sort
 
+import "fmt"
+
+func merge20260106(left, right []int) []int {
+	fmt.Println("Left:", left, "  Right:", right)
+	totalLen := len(left) + len(right)
+	merged := make([]int, 0, totalLen)
+	leftIdx, rightIdx := 0, 0
+	for i := 0; i < totalLen; i++ {
+		if leftIdx == len(left) {
+			merged = append(merged, right[rightIdx])
+			rightIdx++
+			continue
+		}
+		if rightIdx == len(right) {
+			merged = append(merged, left[leftIdx])
+			leftIdx++
+			continue
+		}
+
+		if left[leftIdx] <= right[rightIdx] {
+			merged = append(merged, left[leftIdx])
+			leftIdx++
+		} else {
+			merged = append(merged, right[rightIdx])
+			rightIdx++
+		}
+	}
+	return merged
+}
+
+func mergeSort20260106(nums []int) []int {
+	fmt.Println("Given:", nums)
+	if len(nums) <= 1 {
+		return nums
+	}
+	mid := len(nums) / 2
+	leftNums := mergeSort20260106(nums[:mid])
+	rightNums := mergeSort20260106(nums[mid:])
+	merged := merge20260106(leftNums, rightNums)
+	return merged
+}
+
 func mergeUtil(left, right []int) []int {
 	totalLen := len(left) + len(right)
 	// 只有 totalLen 個要分配到新的籃子裡，cap 給 totalLen
