@@ -51,20 +51,17 @@ ref: [[演算法] 氣泡排序法（Bubble Sort）：利用兩兩元素交換位
 
 
 ## Quick sort
-
 - 是一種 **divide and conquer** 演算法
-- 利用陣列中最後一個元素（方便）當作 pivot（樞紐），並將陣列中小於 pivot 的元素往左邊放、大於 pivot 的元素往右邊放，然後 pivot 放中間
-- 接著再遞迴地重複施以此算法於兩邊的陣列，直到陣列元素只剩下一個元素為止
-- 關鍵在以 pivot 分邊的 `partition` 的動作該怎麼做
-  - 直覺想到的是創建額外的空間來填（小於就填入左邊、大於則填入右邊）
-  - 或是利用 two pointers 來挪動小於 pivot 及大於 pivot 的數值
-    - 設計一個 recursive function (nums, start, end)
-    - end 指的就是我們的 pivot
-    - function 內比較 pivot-1 與 pivot 的大小；
-      - 若 pivot-1 較小，則與 start 調換位置，start pointer++
-      - 若 pivot-1 較大，則與 pivot 調換位置，pivot pointer--
-      - 直到start pointer 與 pivot pointer 相撞為止
-      - 最後再呼叫 recursive function 丟進 (nums, start, pivot-1) 與 (nums, pivot+1, end)
+- 利用陣列中最後一個元素（方便）當作 pivot（樞紐），並將陣列中小於 pivot 的元素往左邊放、大於 pivot 的元素往右邊放，最後 pivot 放中間
+  - partition steps
+    - 首先，選擇陣列中最右邊的元素當作 pivot；並初始化 pivotIdx 為陣列最左的元素的 index - 1
+    - 從陣列最左的元素開始與 pivot 比大小，如果：
+      - 元素 < pivot，則 pivotIdx++，當前元素與 pivotIdx 指向的元素交換位置 -> 此舉可以看到較 pivot 小的元素會逐一被往左邊擺放
+      - 元素 >= pivot ，則不動
+    - 最後， pivotIdx 指向的是比 pivot 還小的元素最右邊的位置，故將 pivot 與 pivotIdx+1 指向的元素交換位置，此時 pivot 左邊確實都是比他小的元素了，完成 partition
+  - recurrence steps
+    - 取得 pivotIdx 後，即可將陣列一分為二，分別對左邊與右邊的陣列重複執行 quick sort
+
 
 
 ## Merge sort
