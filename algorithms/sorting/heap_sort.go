@@ -1,5 +1,46 @@
 package sort
 
+func siftDown(nums []int, fix, end int) {
+	leftIdx := 2*fix + 1
+	rightIdx := 2*fix + 2
+	if leftIdx > end {
+		// the fix node is a leaf node
+		return
+	}
+	if rightIdx > end {
+		// only left child exists
+		if nums[fix] < nums[leftIdx] {
+			swap(nums, fix, leftIdx)
+		}
+		return
+	}
+	largestIdx := leftIdx
+	if nums[rightIdx] > nums[leftIdx] {
+		largestIdx = rightIdx
+	}
+	if nums[fix] > nums[largestIdx] {
+		// heap property holds
+		return
+	}
+	swap(nums, fix, largestIdx)
+	siftDown(nums, largestIdx, end) // continue sifting down
+}
+
+func heapSort20260107(nums []int) []int {
+	// Phase 1: build max heap
+	// loop from the last non-leaf node to the root node
+	for i := (len(nums) - 1) / 2; i >= 0; i-- {
+		siftDown(nums, i, len(nums)-1)
+	}
+
+	// Phase 2: sort the array
+	for end := len(nums) - 1; end > 0; end-- {
+		swap(nums, 0, end)       // swap the root with the last element
+		siftDown(nums, 0, end-1) // sift down the new root to maintain heap property
+	}
+	return nums
+}
+
 func heapify(nums []int, start, end int) {
 	// sort the array in-place by Max Heap
 	// index from 0: if we have i-th element
