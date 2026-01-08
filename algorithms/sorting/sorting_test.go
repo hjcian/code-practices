@@ -22,7 +22,8 @@ func Test_Sortings(t *testing.T) {
 	}{
 		{"selectionSort", selectionSort},
 		{"insertionSort", insertionSort},
-		{"insertionSort_20210531", insertionSort_20210531},
+		{"insertionSort_20210531_1", insertionSort_20210531_1},
+		{"insertionSort_20210531_2", insertionSort_20210531_2},
 		{"insertionSort_20220417", insertionSort_20220417},
 		{"bubbleSort", bubbleSort},
 		{"bubbleSort_20220417", bubbleSort_20220417},
