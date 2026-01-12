@@ -2,6 +2,7 @@ package threesum
 
 import (
 	"fmt"
+	"slices"
 	"sort"
 )
 
@@ -74,3 +75,43 @@ func threeSum(nums []int) [][]int {
 // 	}
 // 	return ret
 // }
+
+func threeSum20260111(nums []int) [][]int {
+	slices.Sort(nums)
+
+	results := make([][]int, 0)
+	for i := 0; i < len(nums); i++ {
+		// 跳過重複的 i，避免產生重複的三元組
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		target := -nums[i]
+		left := i + 1
+		right := len(nums) - 1
+		for left < right {
+			if nums[left]+nums[right] < target {
+				left++
+				continue
+			}
+			if nums[left]+nums[right] > target {
+				right--
+				continue
+			}
+			fmt.Println(nums[i], nums[left], nums[right])
+			results = append(results, []int{nums[i], nums[left], nums[right]})
+
+			// skip duplicates
+			for left < right && nums[left] == nums[left+1] {
+				left++
+			}
+			for left < right && nums[right] == nums[right-1] {
+				right--
+			}
+			// Next whatever
+			left++
+			right--
+		}
+	}
+	fmt.Println(results)
+	return results
+}
