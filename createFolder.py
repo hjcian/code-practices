@@ -13,18 +13,20 @@ def parseArgv():
                         action="store_true", help="toggle the codesignal")
     parser.add_argument("-w", "--codewars",
                         action="store_true", help="toggle the codewars")
+    parser.add_argument("-hr", "--hackerrank",
+                        action="store_true", help="toggle the hackerrank")
     parser.add_argument(
         "-t", "--title", help="the problem title of codesignal problem")
 
     argv = parser.parse_args()
 
-    if not argv.leetcode and not argv.codesignal and not argv.codewars:
-        parser.error("leetcode, codesignal or codewars?")
+    if not argv.leetcode and not argv.codesignal and not argv.codewars and not argv.hackerrank:
+        parser.error("leetcode, codesignal, codewars or hackerrank?")
 
     if not argv.title:
         parser.error("need the problem title")
 
-    return argv.leetcode, argv.codesignal, argv.codewars, argv.title
+    return argv.leetcode, argv.codesignal, argv.codewars, argv.hackerrank, argv.title
 
 
 def createGoFile(packageName, filepath):
@@ -43,7 +45,7 @@ def createTestGoFile(packageName, filepath):
 
 
 if __name__ == "__main__":
-    leetcode, codesignal, codewars, title = parseArgv()
+    leetcode, codesignal, codewars, hackerrank, title = parseArgv()
     title = title.replace(" ", "")
     title = title.replace("-", "")
     title = title.replace("(", "_")
@@ -64,6 +66,9 @@ if __name__ == "__main__":
         problemDir = DIR_PATH.joinpath(platform, title)
     if codewars:
         platform = "codewars"
+        problemDir = DIR_PATH.joinpath(platform, title)
+    if hackerrank:
+        platform = "hackerrank"
         problemDir = DIR_PATH.joinpath(platform, title)
 
     problemDir.mkdir(parents=True, exist_ok=False)
