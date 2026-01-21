@@ -7,7 +7,6 @@ package findthesmallestmissingpositiveinteger
 // Input: [0, 10, 2, -10, 1]
 
 func findSmallestMissingPositive(orderNumbers []int32) int32 {
-
 	// Write your code here
 	if len(orderNumbers) == 0 {
 		return 1
